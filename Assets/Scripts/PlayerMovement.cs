@@ -1,35 +1,36 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField]private float Speed = 3f;
+    
+    private const string MovementVertical = "Vertical";
+    private const string MovementHorizontal = "Horizontal";
+    
+    [SerializeField]private float _speed = 3f;
 
-    private Rigidbody2D playerRb;
-    private Vector2 moveInput;
-    private Animator playerAnimator;
+    private Rigidbody2D _rigidBody;
+    private Vector2 _moveInput;
+    private Animator _animator;
 
     void Start()
     {
-        playerRb = GetComponent<Rigidbody2D>();
-        playerAnimator = GetComponent<Animator>();
+        _rigidBody = GetComponent<Rigidbody2D>();
+        _animator = GetComponent<Animator>();
     }
 
     void Update()
     {
-        float moveX = Input.GetAxisRaw("Horizontal");
-        float moveY = Input.GetAxisRaw("Vertical");
-        moveInput = new Vector2(moveX,moveY).normalized;
+        var moveX = Input.GetAxisRaw(MovementHorizontal);
+        var moveY = Input.GetAxisRaw(MovementVertical);
+        _moveInput = new Vector2(moveX,moveY).normalized;
 
-        playerAnimator.SetFloat("Horizontal",moveX);
-        playerAnimator.SetFloat("Vertical",moveY);
+        _animator.SetFloat("Horizontal", moveX);
+        _animator.SetFloat("Vertical", moveY);
         
     }
     private void FixedUpdate()
     {
-        //Fisicas
-        playerRb.MovePosition(playerRb.position + moveInput * Speed * Time.fixedDeltaTime);
+        _rigidBody.
+            MovePosition(_rigidBody.position + _moveInput * _speed * Time.fixedDeltaTime);
 
     }
 }
