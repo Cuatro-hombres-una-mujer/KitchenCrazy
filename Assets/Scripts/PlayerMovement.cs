@@ -23,8 +23,8 @@ public class PlayerMovement : MonoBehaviour
         var moveY = Input.GetAxisRaw(MovementVertical);
         _moveInput = new Vector2(moveX,moveY).normalized;
 
-        _animator.SetFloat("Horizontal", moveX);
-        _animator.SetFloat("Vertical", moveY);
+        _animator.SetFloat(MovementHorizontal, moveX);
+        _animator.SetFloat(MovementVertical, moveY);
         
     }
     private void FixedUpdate()
