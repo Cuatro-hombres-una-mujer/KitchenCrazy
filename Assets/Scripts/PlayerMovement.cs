@@ -19,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        
         var moveX = Input.GetAxisRaw(MovementHorizontal);
         var moveY = Input.GetAxisRaw(MovementVertical);
         _moveInput = new Vector2(moveX,moveY).normalized;
