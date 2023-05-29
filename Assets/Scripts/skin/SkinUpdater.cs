@@ -6,17 +6,17 @@ using UnityEngine;
 public class SkinUpdater : MonoBehaviour
 {
 
-    [SerializeField] private List<RuntimeAnimatorController> _animators;
-    [SerializeField] private List<Sprite> _sprites;
-    [SerializeField] private List<string> _names;
+    [SerializeField] private List<RuntimeAnimatorController> animators;
+    [SerializeField] private List<Sprite> sprites;
+    [SerializeField] private List<string> names;
     private void Start()
     {
         
-        var _spriteRenderer = GetComponent<SpriteRenderer>();
-        var _animator = GetComponent<Animator>();
+        var spriteRenderer = GetComponent<SpriteRenderer>();
+        var animator = GetComponent<Animator>();
 
         var skinHandler = new SkinHandler(
-            _spriteRenderer, _animator, _names, _sprites, _animators);
+            spriteRenderer, animator, names, sprites, animators);
 
     }
 

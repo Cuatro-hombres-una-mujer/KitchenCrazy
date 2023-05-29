@@ -1,0 +1,55 @@
+@startuml
+!pragma layout smetana
+skin rose 
+
+package Food {
+    class ItemFood {
+        _name : string
+        _quantity : int
+        _sprite : Sprite
+        
+        + ItemFood(name : string, quantity : int,
+        sprite : Sprite)
+        
+        + GetName() : string
+        + GetQuantity() : int 
+        + GetSprite() : Sprite 
+        
+        + SetQuantity(quantity : int ) : void 
+        
+    }
+    
+    class Recipe {
+    
+        _items : List<ItemFood>
+        _itemFood : ItemFood
+        
+        + Recipe(items : List<ItemFood>, 
+        _itemFood : ItemFood) 
+        
+        + HasElement(item : ItemFood) : bool
+    
+    }
+
+    package Inventory { 
+    
+        class InventoryHandler {
+            - items_ : List<ItemFood>
+            
+            + Inventory() 
+            
+            + AddItem(itemFood : ItemFood) : void 
+  
+        
+        }
+        
+        
+    
+    }
+
+}
+
+
+
+
+@enduml
