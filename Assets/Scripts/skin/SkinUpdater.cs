@@ -7,6 +7,7 @@ public class SkinUpdater : MonoBehaviour
 {
 
     [SerializeField] private List<RuntimeAnimatorController> animators;
+    
     [SerializeField] private List<Sprite> sprites;
     [SerializeField] private List<string> names;
     private void Start()
@@ -18,6 +19,8 @@ public class SkinUpdater : MonoBehaviour
         var skinHandler = new SkinHandler(
             spriteRenderer, animator, names, sprites, animators);
 
+        
+        
     }
 
 }
