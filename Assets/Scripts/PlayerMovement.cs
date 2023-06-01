@@ -5,7 +5,7 @@ public class PlayerMovement : MonoBehaviour
     private const string MovementVertical = "Vertical";
     private const string MovementHorizontal = "Horizontal";
     
-    [SerializeField]private float _speed = 3f;
+    [SerializeField]private float _speed = 15f;
 
     private Rigidbody2D _rigidBody;
     private Vector2 _moveInput;
