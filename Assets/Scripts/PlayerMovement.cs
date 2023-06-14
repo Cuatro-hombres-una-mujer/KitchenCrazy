@@ -1,11 +1,12 @@
+using Entities;
 using UnityEngine;
+
 public class PlayerMovement : MonoBehaviour
 {
-    
     private const string MovementVertical = "Vertical";
     private const string MovementHorizontal = "Horizontal";
-    
-    [SerializeField]private float _speed = 15f;
+
+    [SerializeField] private float _speed = 15f;
 
     private Rigidbody2D _rigidBody;
     private Vector2 _moveInput;
@@ -19,19 +20,30 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            ClientPool clientPool = ClientHandlerScript.GetMainClientPool();
+            
+            if (clientPool == null)
+            {
+                print("Es null el client pooll");
+                return;
+            }
+
+            clientPool.Spawn();
+            print("Spawned");
+        }
+
         var moveX = Input.GetAxisRaw(MovementHorizontal);
         var moveY = Input.GetAxisRaw(MovementVertical);
-        _moveInput = new Vector2(moveX,moveY).normalized;
+        _moveInput = new Vector2(moveX, moveY).normalized;
 
         _animator.SetFloat(MovementHorizontal, moveX);
         _animator.SetFloat(MovementVertical, moveY);
-        
     }
+
     private void FixedUpdate()
     {
-        _rigidBody.
-            MovePosition(_rigidBody.position + _moveInput * _speed * Time.fixedDeltaTime);
-
+        _rigidBody.MovePosition(_rigidBody.position + _moveInput * _speed * Time.fixedDeltaTime);
     }
 }

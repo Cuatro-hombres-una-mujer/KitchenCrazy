@@ -24,6 +24,10 @@ namespace Entities
         {
             _isWalking = false;
         }
-        
+
+        public bool IsWalking()
+        {
+            return _isWalking;
+        }
     }
 }

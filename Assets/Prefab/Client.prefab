@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2760265193875006509}
   - component: {fileID: 6009853044465463131}
   - component: {fileID: 5676259947705917344}
+  - component: {fileID: 8735478020597589626}
   m_Layer: 0
   m_Name: Client
   m_TagString: Untagged
@@ -49,7 +50,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -133,3 +134,16 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8735478020597589626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1071381557623006054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be6c176a448d0447699722a34a947a6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0.15
