@@ -22,6 +22,8 @@ namespace Entities
 
             _entities = new List<GameObject>();
             _clients = new Dictionary<string, Client>();
+            
+            GenerateEntities();
         }
 
         private void GenerateEntities()
@@ -31,6 +33,7 @@ namespace Entities
                 var gameObject = GameObject.Instantiate(_clientPrefab,
                     _vectorInitialPosition, Quaternion.identity);
 
+                gameObject.SetActive(false);
                 _entities.Add(gameObject);
 
                 //CREATE THE CLIENT
