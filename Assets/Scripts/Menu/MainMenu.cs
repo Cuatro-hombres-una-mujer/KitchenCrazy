@@ -2,19 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 
 public class MainMenu : MonoBehaviour
 {
-    
+    public AudioSource clip;
     public void Play()
     {
         SceneManager.LoadScene(1);
+        clip.Play();
     }
 
-    
     public void Exit()
     {
         Debug.Log("Salir...");
         Application.Quit();
+        clip.Play();
     }
 }
