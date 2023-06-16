@@ -13,6 +13,18 @@ public class MainMenu : MonoBehaviour
         clip.Play();
     }
 
+    public void Option()
+    {
+        SceneManager.LoadScene(3);
+        clip.Play();
+    }
+    
+    public void Shop()
+    {
+        SceneManager.LoadScene(4);
+        clip.Play();
+    }
+
     public void Exit()
     {
         Debug.Log("Salir...");
