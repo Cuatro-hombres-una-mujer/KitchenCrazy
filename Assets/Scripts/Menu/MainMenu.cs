@@ -13,6 +13,12 @@ public class MainMenu : MonoBehaviour
         clip.Play();
     }
 
+    public void Menu()
+    {
+        SceneManager.LoadScene(0);
+        clip.Play();
+    }
+
     public void Option()
     {
         SceneManager.LoadScene(3);
