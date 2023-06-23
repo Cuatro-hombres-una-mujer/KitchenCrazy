@@ -32,11 +32,11 @@ public class SaveLoadSystemData1 : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.C))
+        if(Input.GetKeyDown(KeyCode.G))
         {
             SaveData();
         }
-        if(Input.GetKeyDown(KeyCode.G))
+        if(Input.GetKeyDown(KeyCode.C))
         {
             LoadData();
         }
