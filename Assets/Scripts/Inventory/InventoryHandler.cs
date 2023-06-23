@@ -6,6 +6,7 @@ using UnityEngine;
 public class InventoryHandler
 {
     private readonly List<ItemFood> _items;
+    private readonly IDictionary<string, int> _positions;
 
     public InventoryHandler()
     {
@@ -14,31 +15,72 @@ public class InventoryHandler
 
     public void AddItem(ItemFood itemAdded)
     {
-        foreach (var item in _items)
+        var name = itemAdded.GetName();
+        if (HasItem(itemAdded))
         {
-            if (itemAdded.Equals(item))
-            {
-                itemAdded.SetQuantity(itemAdded.GetQuantity() +
-                                      itemAdded.GetQuantity());
-            }
+            ItemFood itemFood = GetItem(name);
+
+            itemFood.SetQuantity(
+                itemFood.GetQuantity() + itemAdded.GetQuantity()
+            );
+
+            return;
         }
 
         _items.Add(itemAdded);
+        var position = _items.Count - 1;
+
+        _positions[name] = position;
     }
 
-    public void RemoveItem(ItemFood item)
+    public void DeleteItem(ItemFood item)
     {
-        _items.Remove(item);
+        var name = item.GetName();
+
+        if (!HasItem(item))
+        {
+            return;
+        }
+
+        var position = _positions[name];
+
+        _positions.Remove(name);
+        _items.RemoveAt(position);
+
     }
 
     public bool HasItem(ItemFood item)
     {
-        return _items.Contains(item);
+        return _positions.ContainsKey(item.GetName());
     }
 
     public ItemFood GetItem(int slot)
     {
         return _items[slot];
     }
-    
+
+    public ItemFood GetItem(string name)
+    {
+        var position = _positions[name];
+        return _items[position];
+    }
+
+    public bool HasElementOrSuperior(ItemFood itemFood)
+    {
+
+        var name = itemFood.GetName();
+
+        if (!HasItem(itemFood))
+        {
+            return false;
+        }
+        
+        var item = GetItem(name);
+        return item.GetQuantity() >= itemFood.GetQuantity();
+    }
+
+    public List<ItemFood> GetItems()
+    {
+        return _items;
+    }
 }

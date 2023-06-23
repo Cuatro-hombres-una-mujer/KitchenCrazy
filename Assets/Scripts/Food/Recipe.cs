@@ -4,19 +4,42 @@ namespace Food
 {
     public class Recipe
     {
-        private List<ItemFood> _items;
+        private readonly List<ItemFood> _items;
         private ItemFood _itemFood;
-        
-        public Recipe(List<ItemFood> _items)
+
+        public Recipe(List<ItemFood> items)
         {
-            this._items = _items;
+            _items = items;
         }
 
         public bool HasElements(InventoryHandler inventoryHandler)
         {
-            return false;
+            foreach (var item in _items)
+            {
+                if (!inventoryHandler.HasElementOrSuperior(item))
+                {
+                    return false;
+                }
+            }
+
+            return true;
         }
-        
-        
+
+        public void CreateFood(InventoryHandler inventoryHandler)
+        {
+            DeleteItems(inventoryHandler);
+            inventoryHandler.AddItem(_itemFood);
+        }
+
+        private void DeleteItems(InventoryHandler inventoryHandler)
+        {
+
+            foreach (var item in _items)
+            {
+                inventoryHandler.DeleteItem(item);
+            }
+         
+        }
+
     }
 }
