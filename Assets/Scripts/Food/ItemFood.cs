@@ -4,40 +4,18 @@ namespace Food
 {
     public class ItemFood
     {
-        private readonly string _name;
-        private readonly Sprite _sprite;
-        private int _quantity;
+        private string Name { get; }
+        private int Quantity { get; }
 
-        public ItemFood(string name, Sprite sprite, int quantity)
+        public ItemFood(string name,int quantity)
         {
-            _name = name;
-            _sprite = sprite;
-            _quantity = quantity;
+            Name = name;
+            Quantity = quantity;
         }
-
-        public string GetName()
-        {
-            return this._name;
-        }
-
-        public Sprite GetSprite()
-        {
-            return this._sprite;
-        }
-
-        public int GetQuantity()
-        {
-            return this._quantity;
-        }
-
-        public void SetQuantity(int quantity)
-        {
-            _quantity = quantity;
-        }
-
+        
         public bool Equals(ItemFood itemFood)
         {
-            return itemFood.GetName() == GetName();
+            return Name == itemFood.Name;;
         }
     }
 }
