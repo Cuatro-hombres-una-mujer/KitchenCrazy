@@ -14,7 +14,7 @@ namespace Food
             
         }
 
-        public bool HasElements(InventoryHandler inventoryHandler)
+        public bool HasElements(Inventory inventoryHandler)
         {
             foreach (var item in Items)
             {
@@ -27,13 +27,13 @@ namespace Food
             return true;
         }
 
-        public void CreateFood(InventoryHandler inventoryHandler)
+        public void CreateFood(Inventory inventoryHandler)
         {
             DeleteItems(inventoryHandler);
             inventoryHandler.AddItem(ItemFood);
         }
 
-        private void DeleteItems(InventoryHandler inventoryHandler)
+        private void DeleteItems(Inventory inventoryHandler)
         {
 
             foreach (var item in Items)

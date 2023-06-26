@@ -30,6 +30,16 @@ namespace Entities.Player
             _inventoryOpened = inventoryName;
         }
 
+        public void CloseInventory()
+        {
+            _inventoryOpened = string.Empty;
+        }
+        
+        public bool IsView(string name)
+        {
+            return _inventoryOpened == name;
+        }
+        
         public int GetCoins()
         {
             return _coins;
