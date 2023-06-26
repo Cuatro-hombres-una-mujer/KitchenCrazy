@@ -1,8 +1,11 @@
 using Entities;
+using Entities.Player;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    private static Player _player;
+
     private const string MovementVertical = "Vertical";
     private const string MovementHorizontal = "Horizontal";
     public AudioSource clip;
@@ -26,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R))
         {
             ClientPool clientPool = ClientHandlerScript.GetMainClientPool();
-            
+
             if (clientPool == null)
             {
                 print("Es null el client pooll");
@@ -44,30 +47,49 @@ public class PlayerMovement : MonoBehaviour
         _animator.SetFloat(MovementHorizontal, moveX);
         _animator.SetFloat(MovementVertical, moveY);
 
-        if (Input.GetButtonDown(MovementHorizontal)){
+        if (Input.GetButtonDown(MovementHorizontal))
+        {
             Hactivo = true;
             clip.Play();
         }
-        if (Input.GetButtonDown(MovementVertical)){
+
+        if (Input.GetButtonDown(MovementVertical))
+        {
             Vactivo = true;
             clip.Play();
         }
-        if (Input.GetButtonUp(MovementHorizontal)){
-            if (Vactivo == false){
-                clip.Pause();
-            }            
-            Hactivo = false;
-        }
-        if (Input.GetButtonUp(MovementVertical)){
-            if (Hactivo == false){
+
+        if (Input.GetButtonUp(MovementHorizontal))
+        {
+            if (Vactivo == false)
+            {
                 clip.Pause();
             }
+
+            Hactivo = false;
+        }
+
+        if (Input.GetButtonUp(MovementVertical))
+        {
+            if (Hactivo == false)
+            {
+                clip.Pause();
+            }
+
             Vactivo = false;
         }
+
+        _player = new Player();
     }
 
     private void FixedUpdate()
     {
         _rigidBody.MovePosition(_rigidBody.position + _moveInput * _speed * Time.fixedDeltaTime);
     }
+
+    public static Player GetPlayer()
+    {
+        return _player;
+    }
+    
 }

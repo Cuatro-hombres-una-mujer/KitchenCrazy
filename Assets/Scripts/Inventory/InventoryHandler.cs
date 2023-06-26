@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using Food;
 using UnityEngine;
 
-public class InventoryHandler
+public class Inventory
 {
     private readonly List<ItemFood> _items;
     private readonly IDictionary<string, int> _positions;
 
-    public InventoryHandler()
+    public Inventory()
     {
         _items = new List<ItemFood>();
     }
