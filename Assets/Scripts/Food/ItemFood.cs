@@ -4,8 +4,10 @@ namespace Food
 {
     public class ItemFood
     {
-        private string Name { get; }
-        private int Quantity { get; }
+        public string Name { get; set;  }
+        public int Quantity { get; set; }
+        
+        public bool CanRequestedForClient { get; set; }
 
         public ItemFood(string name,int quantity)
         {
@@ -15,7 +17,7 @@ namespace Food
         
         public bool Equals(ItemFood itemFood)
         {
-            return Name == itemFood.Name;;
+            return Name == itemFood.Name;
         }
     }
 }

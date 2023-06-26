@@ -4,17 +4,19 @@ namespace Food
 {
     public class Recipe
     {
-        private readonly List<ItemFood> _items;
-        private ItemFood _itemFood;
+        public List<ItemFood> Items { get; set; }
+        public ItemFood ItemFood { get; set; }
 
-        public Recipe(List<ItemFood> items)
+        public Recipe(List<ItemFood> items, ItemFood itemFood)
         {
-            _items = items;
+            Items = items;
+            ItemFood = itemFood;
+            
         }
 
         public bool HasElements(InventoryHandler inventoryHandler)
         {
-            foreach (var item in _items)
+            foreach (var item in Items)
             {
                 if (!inventoryHandler.HasElementOrSuperior(item))
                 {
@@ -28,13 +30,13 @@ namespace Food
         public void CreateFood(InventoryHandler inventoryHandler)
         {
             DeleteItems(inventoryHandler);
-            inventoryHandler.AddItem(_itemFood);
+            inventoryHandler.AddItem(ItemFood);
         }
 
         private void DeleteItems(InventoryHandler inventoryHandler)
         {
 
-            foreach (var item in _items)
+            foreach (var item in Items)
             {
                 inventoryHandler.DeleteItem(item);
             }

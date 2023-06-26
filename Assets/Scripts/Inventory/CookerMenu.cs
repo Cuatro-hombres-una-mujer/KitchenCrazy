@@ -6,8 +6,7 @@ using UnityEngine.Audio;
 public class CookerMenu : MonoBehaviour
 {
 
-    private bool cookEnabled;
-
+    private bool _cookEnabled;
     public GameObject kitchen;
 
     // Start is called before the first frame update
@@ -23,9 +22,9 @@ public class CookerMenu : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.I))
         
         {
-            cookEnabled = !cookEnabled;
+            _cookEnabled = !_cookEnabled;
         }
-        if (cookEnabled)
+        if (_cookEnabled)
         {
             kitchen.SetActive(true);
             Time.timeScale = 0f;
@@ -37,7 +36,7 @@ public class CookerMenu : MonoBehaviour
         }
     }
     public void BackToGame(){
-        cookEnabled = !cookEnabled;
+        _cookEnabled = !_cookEnabled;
         kitchen.SetActive(false);
         Time.timeScale = 1f;
     }

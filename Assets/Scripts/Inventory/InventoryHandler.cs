@@ -15,14 +15,13 @@ public class InventoryHandler
 
     public void AddItem(ItemFood itemAdded)
     {
-        var name = itemAdded.GetName();
+        var name = itemAdded.Name;
         if (HasItem(itemAdded))
         {
             ItemFood itemFood = GetItem(name);
 
-            itemFood.SetQuantity(
-                itemFood.GetQuantity() + itemAdded.GetQuantity()
-            );
+            itemFood.Quantity = itemFood.Quantity + itemAdded.Quantity;
+            
 
             return;
         }
@@ -35,7 +34,7 @@ public class InventoryHandler
 
     public void DeleteItem(ItemFood item)
     {
-        var name = item.GetName();
+        var name = item.Name;
 
         if (!HasItem(item))
         {
@@ -51,7 +50,7 @@ public class InventoryHandler
 
     public bool HasItem(ItemFood item)
     {
-        return _positions.ContainsKey(item.GetName());
+        return _positions.ContainsKey(item.Name);
     }
 
     public ItemFood GetItem(int slot)
@@ -68,7 +67,7 @@ public class InventoryHandler
     public bool HasElementOrSuperior(ItemFood itemFood)
     {
 
-        var name = itemFood.GetName();
+        var name = itemFood.Name;
 
         if (!HasItem(itemFood))
         {
@@ -76,7 +75,7 @@ public class InventoryHandler
         }
         
         var item = GetItem(name);
-        return item.GetQuantity() >= itemFood.GetQuantity();
+        return item.Quantity >= itemFood.Quantity;
     }
 
     public List<ItemFood> GetItems()

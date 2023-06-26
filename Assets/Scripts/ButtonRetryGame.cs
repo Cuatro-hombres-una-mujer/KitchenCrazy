@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
 
-public class ButtonVolverGame : MonoBehaviour
+public class ButtonRetryGame : MonoBehaviour
 {   
     public AudioSource clip;
 
@@ -20,7 +20,7 @@ public class ButtonVolverGame : MonoBehaviour
         
     }
 
-    public void Volver()
+    public void Retry()
     {
         SceneManager.LoadScene(1);
         clip.Play();

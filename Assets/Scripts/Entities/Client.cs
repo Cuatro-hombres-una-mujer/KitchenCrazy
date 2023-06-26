@@ -1,11 +1,12 @@
 using System.Collections.Generic;
 using Food;
+using Food.Order;
 
 namespace Entities
 {
     public class Client
     {
-        private List<ItemFood> _requested;
+        private List<Order> _orders;
         private bool _isWalking;
         private string _name;
 
@@ -29,5 +30,11 @@ namespace Entities
         {
             return _isWalking;
         }
+
+        public List<Order> GetOrders()
+        {
+            return _orders;
+        }
+        
     }
 }
