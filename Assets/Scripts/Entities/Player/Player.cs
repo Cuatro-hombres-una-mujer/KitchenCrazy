@@ -12,6 +12,7 @@ namespace Entities.Player
         public Player()
         {
             Inventory = new Inventory();
+            _inventoryOpened = "";
             _coins = 0;
         }
 

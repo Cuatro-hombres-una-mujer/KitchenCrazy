@@ -18,10 +18,11 @@ public class PlayerMovement : MonoBehaviour
     private bool Hactivo;
     private bool Vactivo;
 
-    void Start()
+    void Awake()
     {
         _rigidBody = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
+        _player = new Player();
     }
 
     void Update()
@@ -38,6 +39,11 @@ public class PlayerMovement : MonoBehaviour
 
             clientPool.Spawn();
             print("Spawned");
+        }
+
+        if (_player.HasOpenInventory())
+        {
+            return;
         }
 
         var moveX = Input.GetAxisRaw(MovementHorizontal);
@@ -78,18 +84,19 @@ public class PlayerMovement : MonoBehaviour
 
             Vactivo = false;
         }
-
-        _player = new Player();
     }
 
     private void FixedUpdate()
     {
-        _rigidBody.MovePosition(_rigidBody.position + _moveInput * _speed * Time.fixedDeltaTime);
+        if (!_player.HasOpenInventory())
+        {
+            _rigidBody.MovePosition(_rigidBody.position + _moveInput * _speed * Time.fixedDeltaTime);
+        }
+        
     }
 
     public static Player GetPlayer()
     {
         return _player;
     }
-    
 }

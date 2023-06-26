@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 using Food;
+using Helper;
 using UnityEngine;
 
 public class Inventory
@@ -21,7 +23,7 @@ public class Inventory
             ItemFood itemFood = GetItem(name);
 
             itemFood.Quantity = itemFood.Quantity + itemAdded.Quantity;
-            
+
 
             return;
         }
@@ -45,7 +47,6 @@ public class Inventory
 
         _positions.Remove(name);
         _items.RemoveAt(position);
-
     }
 
     public bool HasItem(ItemFood item)
@@ -66,14 +67,13 @@ public class Inventory
 
     public bool HasElementOrSuperior(ItemFood itemFood)
     {
-
         var name = itemFood.Name;
 
         if (!HasItem(itemFood))
         {
             return false;
         }
-        
+
         var item = GetItem(name);
         return item.Quantity >= itemFood.Quantity;
     }
@@ -82,4 +82,22 @@ public class Inventory
     {
         return _items;
     }
+
+    public string GetItemsInString()
+    {
+
+        if (_items.Count == 0)
+        {
+            return "Nada :(";
+        }
+        
+        var stringBuilder = new StringBuilder();
+        foreach (var item in _items)
+        {
+            stringBuilder.Append(item.Name).Append(StringHelper.SpaceLine);
+        }
+
+        return stringBuilder.ToString();
+    }
+    
 }
