@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 namespace Food
@@ -15,6 +16,12 @@ namespace Food
         public void Register(Recipe recipe)
         {
             var itemFood = recipe.ItemFood;
+
+            if (itemFood == null)
+            {
+                Console.WriteLine("Es null");
+                return;
+            }
             
             _recipes.Add(itemFood.Name, recipe);
         }

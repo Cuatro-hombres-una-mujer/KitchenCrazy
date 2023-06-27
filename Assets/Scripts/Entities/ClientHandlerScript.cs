@@ -6,6 +6,8 @@ using UnityEngine;
 public class ClientHandlerScript : MonoBehaviour
 {
     private static ClientPool _clientPool;
+
+    [SerializeField] private List<string> randomNames;
     [SerializeField] private int quantity;
     [SerializeField] private GameObject clientPrefab;
     [SerializeField] private float x;
@@ -16,10 +18,8 @@ public class ClientHandlerScript : MonoBehaviour
         Vector2 initialPositionVector = new Vector2(x, y);
         IMovementStrategy movementStrategy = new UpLinealMovementStrategy();
         
-        print("AAAAAAAA");
-        
         _clientPool = new ClientPool(quantity, clientPrefab, initialPositionVector, 
-            movementStrategy);
+            movementStrategy, randomNames);
         
     }
     

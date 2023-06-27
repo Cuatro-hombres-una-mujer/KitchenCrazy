@@ -8,14 +8,21 @@ namespace Entities
     {
         private List<Order> _orders;
         private bool _isWalking;
-        private string _name;
+        public string NameGameObject { get; }
+        public string Name { get; }
 
-        public Client(bool isWalking, string name)
+        public Client(bool isWalking, string name, string realName)
         {
             _isWalking = isWalking;
-            _name = name;
+            NameGameObject = name;
+            Name = realName;
         }
 
+        public void SetOrders(List<Order> orders)
+        {
+            _orders = orders;
+        }
+        
         public void StartWalk()
         {
             _isWalking = true;
@@ -35,6 +42,5 @@ namespace Entities
         {
             return _orders;
         }
-        
     }
 }

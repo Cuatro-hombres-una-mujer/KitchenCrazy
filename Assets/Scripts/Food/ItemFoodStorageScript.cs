@@ -2,11 +2,10 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using Food.Order;
 using Helper;
 using UnityEngine;
 using Newtonsoft.Json;
-
-
 using File = System.IO.File;
 
 namespace Food
@@ -16,6 +15,8 @@ namespace Food
         private static ItemFoodStorage _itemFoodStorage;
         private const string Root = "Assets/Json/";
         private const string FileName = "items_food.json";
+
+        private static OrderGenerator _orderGenerator;
 
         private void Awake()
         {
@@ -27,15 +28,20 @@ namespace Food
             var items = JsonConvert.DeserializeObject<List<ItemFood>>(jsonInString);
             foreach (var itemFood in items)
             {
-                print("Loaded: " + itemFood.Name);
                 _itemFoodStorage.Register(itemFood);
             }
             
+            _orderGenerator = new OrderGenerator(items);
         }
-        
+
         public static ItemFoodStorage GetItemFoodStorage()
         {
             return _itemFoodStorage;
+        }
+
+        public static OrderGenerator GetOrderGenerator()
+        {
+            return _orderGenerator;
         }
         
     }

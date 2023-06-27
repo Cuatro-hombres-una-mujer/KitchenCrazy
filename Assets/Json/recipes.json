@@ -1,6 +1,9 @@
 [
   {
-    "item": "Completo Italiano",
+    "item": {
+      "name": "Completo Italiano",
+      "quantity": 1
+    },
     "ingredients": [
       "Tomate Picado",
       "Palta Molida",
@@ -10,7 +13,10 @@
     ]
   },
   {
-    "item": "Hamburguesa",
+    "item": {
+      "name": "Hamburguesa",
+      "quantity": 1
+    },
     "ingredients": [
       "Tomate Picado",
       "Queso",
@@ -21,7 +27,10 @@
     ]
   },
   {
-    "item": "Churrasco",
+    "item": {
+      "name": "Churrasco",
+      "quantity": 1
+    },
     "ingredients": [
       "Tomate Picado",
       "Palta Molida",
@@ -31,7 +40,10 @@
     ]
   },
   {
-    "item": "Pichanga",
+    "item": {
+      "name": "Pichanga",
+      "quantity": 1
+    },
     "ingredients": [
       "Queso",
       "Carne Picada cocinada",
@@ -42,7 +54,10 @@
     ]
   },
   {
-    "item": "Salchi-Papa",
+    "item": {
+      "name": "Salchi-Papa",
+      "quantity": 1
+    },
     "ingredients": [
       "Papa Cocinada",
       "Vionesa cocinada",
@@ -50,14 +65,20 @@
     ]
   },
   {
-    "item": "Papas Frites",
+    "item": {
+      "name": "Papa-Frita",
+      "quantity": 1
+    },
     "ingredients": [
       "Papa Cocinada",
       "Mayonesa"
     ]
   },
   {
-    "item": "Barro Luco",
+    "item": {
+      "name": "Barros Luco",
+      "quantity": 1
+    },
     "ingredients": [
       "Queso",
       "Carne Churrasco",
@@ -66,7 +87,10 @@
     ]
   },
   {
-    "item": "As",
+    "item": {
+      "name": "As",
+      "quantity": 1
+    },
     "ingredients": [
       "Queso",
       "Carne Churrasco",

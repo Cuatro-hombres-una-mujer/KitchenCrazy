@@ -1,10 +1,16 @@
+using System;
 using System.Collections.Generic;
+using Food;
+using Food.Order;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Entities
 {
     public class ClientPool
     {
+
+        private readonly List<string> _randomNames;
         private readonly IMovementStrategy _movementStrategy;
         private readonly Vector2 _vectorInitialPosition;
         private readonly GameObject _clientPrefab;
@@ -15,7 +21,8 @@ namespace Entities
         private readonly int _quantity;
 
         public ClientPool(int quantity, GameObject clientPrefab,
-            Vector2 vectorInitialPosition, IMovementStrategy movementStrategy)
+            Vector2 vectorInitialPosition, IMovementStrategy movementStrategy,
+            List<string> randomNames)
         {
             _quantity = quantity;
             _clientPrefab = clientPrefab;
@@ -25,13 +32,14 @@ namespace Entities
             _clients = new Dictionary<string, Client>();
 
             _movementStrategy = movementStrategy;
-
+            _randomNames = randomNames;
+            
             GenerateEntities();
         }
 
         private void GenerateEntities()
         {
-            for (int i = 0; i < _quantity; i++)
+            for (var i = 0; i < _quantity; i++)
             {
                 var gameObject = GameObject.Instantiate(_clientPrefab,
                     _vectorInitialPosition, Quaternion.identity);
@@ -39,9 +47,16 @@ namespace Entities
                 gameObject.SetActive(false);
                 _entities.Add(gameObject);
 
+                var realName = GetRandomName();
+                
                 var client = new Client(false,
-                    gameObject.name);
+                    gameObject.name, realName);
 
+                var orderGenerator = ItemFoodStorageScript.GetOrderGenerator();
+                
+                Console.WriteLine(">> GENERATING NEW ORDER FOR CLIENT");
+                client.SetOrders(orderGenerator.Generate());
+                
                 _clients[gameObject.name] = client;
             }
         }
@@ -82,6 +97,12 @@ namespace Entities
         public IMovementStrategy GetMovementStrategy()
         {
             return _movementStrategy;
+        }
+
+        private string GetRandomName()
+        {
+            var randomPosition = Random.Range(0, _randomNames.Count);
+            return _randomNames[randomPosition];
         }
         
     }

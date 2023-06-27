@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Food.Order
 {
@@ -13,12 +15,13 @@ namespace Food.Order
 
         public OrderGenerator(List<ItemFood> items)
         {
-            _items = new List<ItemFood>();
             
+            _items = new List<ItemFood>();
+
             foreach (var item in items)
             {
-
-                if (item.CanRequestedForClient)
+                
+                if (item.RequestedForClient)
                 {
                     _items.Add(item);
                 }

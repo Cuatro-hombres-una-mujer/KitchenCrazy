@@ -7,7 +7,7 @@ namespace Food
         public string Name { get; set;  }
         public int Quantity { get; set; }
         
-        public bool CanRequestedForClient { get; set; }
+        public bool RequestedForClient { get; set; }
 
         public ItemFood(string name,int quantity)
         {
