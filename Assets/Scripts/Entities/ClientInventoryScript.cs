@@ -13,6 +13,7 @@ namespace Entities
         [SerializeField] private TextMeshProUGUI partOneFood;
         [SerializeField] private TextMeshProUGUI partTwoFood;
         [SerializeField] private TextMeshProUGUI partThirdFood;
+        [SerializeField] private TextMeshProUGUI partFourFood;
 
         private static ClientInventoryText _clientInventoryText;
         
@@ -23,6 +24,8 @@ namespace Entities
             _clientInventoryText.AddPart(new OrderPartInventoryText(partOneFood, false));
             _clientInventoryText.AddPart(new OrderPartInventoryText(partTwoFood, false));
             _clientInventoryText.AddPart(new OrderPartInventoryText(partThirdFood, false));
+            _clientInventoryText.AddPart(new OrderPartInventoryText(partFourFood, false));
+            
         }
 
         public static ClientInventoryText GetClientInventoryText()

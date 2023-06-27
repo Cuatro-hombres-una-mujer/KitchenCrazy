@@ -35,7 +35,7 @@ namespace Food.Order
             var orders = new List<Order>();
             var itemsCloned = new List<ItemFood>(_items);
 
-            var countOrders = Random.Range(0, MaxOrderRequested + 1);
+            var countOrders = Random.Range(1, MaxOrderRequested);
             for (var i = 0; i < countOrders; i++)
             {
 
@@ -44,7 +44,7 @@ namespace Food.Order
 
                 itemsCloned.Remove(itemFood);
 
-                var quantityRandom = Random.Range(0, MaxQuantity + 1);
+                var quantityRandom = Random.Range(1, MaxQuantity);
                 itemFood.Quantity = quantityRandom;
 
                 var order = new Order(itemFood);
