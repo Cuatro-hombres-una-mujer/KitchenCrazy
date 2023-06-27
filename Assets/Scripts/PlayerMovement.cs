@@ -29,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.R))
         {
-            ClientPool clientPool = ClientHandlerScript.GetMainClientPool();
+            var clientPool = ClientHandlerScript.GetMainClientPool();
 
             if (clientPool == null)
             {
