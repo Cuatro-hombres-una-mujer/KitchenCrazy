@@ -9,6 +9,7 @@ TagManager:
   - Mueble
   - Oven
   - Coin
+  - Pantry
   layers:
   - Default
   - TransparentFX

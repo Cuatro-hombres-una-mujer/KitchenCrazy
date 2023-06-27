@@ -14,18 +14,20 @@ namespace Food
     public class ItemFoodStorageScript : MonoBehaviour
     {
         private static ItemFoodStorage _itemFoodStorage;
-        private const string FileName = "items_food.js";
+        private const string Root = "Assets/Json/";
+        private const string FileName = "items_food.json";
 
         private void Awake()
         {
             _itemFoodStorage = new ItemFoodStorage();
-            IEnumerable lines = File.ReadLines(FileName);
+            IEnumerable lines = File.ReadLines(Root + FileName);
 
             var jsonInString = StringHelper.ConvertToString(lines);
 
             var items = JsonConvert.DeserializeObject<List<ItemFood>>(jsonInString);
             foreach (var itemFood in items)
             {
+                print("Loaded: " + itemFood.Name);
                 _itemFoodStorage.Register(itemFood);
             }
             

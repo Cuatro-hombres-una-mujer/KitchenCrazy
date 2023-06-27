@@ -11,12 +11,13 @@ namespace Food
     {
 
         private static RecipeHandler _recipeHandler;
+        private const string Root = "Assets/Json/";
         private const string FileName = "recipes.json";
         private void Awake()
         {
             _recipeHandler = new RecipeHandler();
 
-            IEnumerable<string> lines = File.ReadLines(FileName);
+            var lines = File.ReadLines(Root + FileName);
             var jsonInString = StringHelper.ConvertToString(lines);
 
             var recipes = JsonConvert.DeserializeObject< List<Recipe>> (jsonInString);

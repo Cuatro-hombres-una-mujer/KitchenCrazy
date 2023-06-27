@@ -1,0 +1,182 @@
+[
+  {
+    "name": "Queso",
+    "quantity": 1,
+    "requested_for_client": false
+  },
+  {
+    "name": "Palta",
+    "quantity": 1,
+    "requested_for_client": false
+  },
+  {
+    "name": "Palta Molida",
+    "quantity": 1,
+    "requested_for_client": false
+  },
+  {
+    "name": "Tomate",
+    "quantity": 1,
+    "requested_for_client": false
+  },
+  {
+    "name": "Tomate Picado",
+    "quantity": 1,
+    "requested_for_client": false
+  },
+  {
+    "name": "Pan de Completo",
+    "quantity": 1,
+    "requested_for_client": false
+  },
+  {
+    "name": "Pan Grande",
+    "quantity": 1,
+    "requested_for_client": false
+  },
+  {
+    "name": "Vienesa",
+    "quantity": 1,
+    "requested_for_client": false
+  },
+  {
+    "name": "Vienesa Cocinada",
+    "quantity": 1,
+    "requested_for_client": false
+  },
+  {
+    "name": "Huevo",
+    "quantity": 1,
+    "requested_for_client": false
+  },
+  {
+    "name": "Huevo Crudo",
+    "quantity": 1,
+    "requested_for_client": false
+  },
+  {
+    "name": "Papa Cruda",
+    "quantity": 1,
+    "requested_for_client": false
+  },
+  {
+    "name": "Papa picada",
+    "quantity": 1,
+    "requested_for_client": false
+  },
+  {
+    "name": "Papa cocinada",
+    "quantity": 1,
+    "requested_for_client": false
+  },
+  {
+    "name": "Lechuga",
+    "quantity": 1,
+    "requested_for_client": false
+  },
+  {
+    "name": "Lechuga Picada",
+    "quantity": 1,
+    "requested_for_client": false
+  },
+  {
+    "name": "Pollo Crudo",
+    "quantity": 1,
+    "requested_for_client": false
+  },
+  {
+    "name": "Pollo Picado",
+    "quantity": 1,
+    "requested_for_client": false
+  },
+  {
+    "name": "Pollo Cocinado",
+    "quantity": 1,
+    "requested_for_client": false
+  },
+  {
+    "name": "Cebolla",
+    "quantity": 1,
+    "requested_for_client": false
+  },
+  {
+    "name": "Cebolla Picada",
+    "quantity": 1,
+    "requested_for_client": false
+  },
+  {
+    "name": "Carne Cruda",
+    "quantity": 1,
+    "requested_for_client": false
+  },
+  {
+    "name": "Carne picada Crudo",
+    "quantity": 1,
+    "requested_for_client": false
+  },
+  {
+    "name": "Carne Picada cocinada",
+    "quantity": 1,
+    "requested_for_client": false
+  },
+  {
+    "name": "Carne Churrasco Crudo",
+    "quantity": 1,
+    "requested_for_client": false
+  },
+  {
+    "name": "Carne Churrasco",
+    "quantity": 1,
+    "requested_for_client": false
+  },
+  {
+    "name": "Carne Hamburguesa",
+    "quantity": 1,
+    "requested_for_client": false
+  },
+  {
+    "name": "Mayonesa",
+    "quantity": 1,
+    "requested_for_client": false
+  },
+  {
+    "name": "Bebida",
+    "quantity": 1,
+    "requested_for_client": true
+  },
+  {
+    "name": "Completo Italiano",
+    "quantity": 1,
+    "requested_for_client": true
+  },
+  {
+    "name": "Churrasco Italiano",
+    "quantity": 1,
+    "requested_for_client": true
+  },
+  {
+    "name": "Salchi-Papa",
+    "quantity": 1,
+    "requested_for_client": true
+  },
+  {
+    "name": "Papas Fritas",
+    "quantity": 1,
+    "requested_for_client": true
+  },
+  {
+    "name": "Pichanga",
+    "quantity": 1,
+    "requested_for_client": true
+  },
+  {
+    "name": "Barros Luco",
+    "quantity": 1,
+    "requested_for_client": true
+  },
+  {
+    "name": "As",
+    "quantity": 1,
+    "requested_for_client": true
+  }
+]

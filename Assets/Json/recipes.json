@@ -1,13 +1,77 @@
 [
   {
-    "item": "completo_italiano",
+    "item": "Completo Italiano",
     "ingredients": [
-      "tomate_picado",
-      "palta",
-      "vienesa_cocida",
-      "pan_de_completo",
-      "mayonesa"
+      "Tomate Picado",
+      "Palta Molida",
+      "Vienesa Cocida",
+      "Pan de Completo",
+      "Mayonesa"
+    ]
+  },
+  {
+    "item": "Hamburguesa",
+    "ingredients": [
+      "Tomate Picado",
+      "Queso",
+      "Carne Hamburguesa",
+      "Pan Grande",
+      "Lechuga picada",
+      "Mayonesa"
+    ]
+  },
+  {
+    "item": "Churrasco",
+    "ingredients": [
+      "Tomate Picado",
+      "Palta Molida",
+      "Carne Churrasco",
+      "Pan Grande",
+      "Mayonesa"
+    ]
+  },
+  {
+    "item": "Pichanga",
+    "ingredients": [
+      "Queso",
+      "Carne Picada cocinada",
+      "Vienesa Cocida",
+      "Mayonesa",
+      "pollo cocinado",
+      "Papa Cocinada"
+    ]
+  },
+  {
+    "item": "Salchi-Papa",
+    "ingredients": [
+      "Papa Cocinada",
+      "Vionesa cocinada",
+      "Mayonesa"
+    ]
+  },
+  {
+    "item": "Papas Frites",
+    "ingredients": [
+      "Papa Cocinada",
+      "Mayonesa"
+    ]
+  },
+  {
+    "item": "Barro Luco",
+    "ingredients": [
+      "Queso",
+      "Carne Churrasco",
+      "Mayonesa",
+      "Pan Grande"
+    ]
+  },
+  {
+    "item": "As",
+    "ingredients": [
+      "Queso",
+      "Carne Churrasco",
+      "Mayonesa",
+      "Pan de Completo"
     ]
   }
 ]
-
