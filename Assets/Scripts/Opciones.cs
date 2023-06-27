@@ -73,5 +73,5 @@ public class Opciones : MonoBehaviour
         PlayerPrefs.SetInt("numeroDeCalidad", dropdown.value);
         calidad = dropdown.value;
     }
-
+    
 }

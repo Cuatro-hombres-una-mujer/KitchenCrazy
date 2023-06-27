@@ -20,7 +20,6 @@ public class CookerMenu : MonoBehaviour
     {
 
         if (Input.GetKeyDown(KeyCode.I))
-        
         {
             _cookEnabled = !_cookEnabled;
         }

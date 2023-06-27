@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-
     public int strikes = 0;
     public HUD hud;
     public static GameManager Instance {get; private set;}
@@ -30,5 +29,6 @@ public class GameManager : MonoBehaviour
             SceneManager.LoadScene(5);
         }
     }
+
     
 }
