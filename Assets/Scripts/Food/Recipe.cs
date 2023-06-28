@@ -4,7 +4,7 @@ namespace Food
 {
     public class Recipe
     {
-        public List<ItemFood> Items { get; set; }
+        private List<ItemFood> Items { get; set; }
         public ItemFood ItemFood { get; set; }
 
         public Recipe(List<ItemFood> items, ItemFood itemFood)
@@ -27,7 +27,7 @@ namespace Food
             return true;
         }
 
-        public void CreateFood(Inventory inventoryHandler)
+        public void Cook(Inventory inventoryHandler)
         {
             DeleteItems(inventoryHandler);
             inventoryHandler.AddItem(ItemFood);
