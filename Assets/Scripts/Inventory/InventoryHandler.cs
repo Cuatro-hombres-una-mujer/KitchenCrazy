@@ -13,6 +13,7 @@ public class Inventory
     public Inventory()
     {
         _items = new List<ItemFood>();
+        _positions = new Dictionary<string, int>();
     }
 
     public void AddItem(ItemFood itemAdded)

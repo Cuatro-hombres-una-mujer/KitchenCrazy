@@ -54,7 +54,7 @@ namespace Entities
 
                 var orderGenerator = ItemFoodStorageScript.GetOrderGenerator();
                 
-                Console.WriteLine(">> GENERATING NEW ORDER FOR CLIENT");
+                Debug.Log(">> GENERATING NEW ORDER FOR CLIENT");
                 client.SetOrders(orderGenerator.Generate());
                 
                 _clients[gameObject.name] = client;

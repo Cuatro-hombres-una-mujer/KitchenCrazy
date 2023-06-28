@@ -57,7 +57,7 @@ public class ClientScript : MonoBehaviour
 
             _rigidbody = GetComponent<Rigidbody2D>();
         }
-        
+
         var clientInventoryText = ClientInventoryScript.GetClientInventoryText();
         var player = PlayerMovement.GetPlayer();
         

@@ -21,6 +21,9 @@ namespace DefaultNamespace.Button
 
         public void OnClickAndGive(string name)
         {
+            
+            Debug.Log("Food: " + name);
+            
             if (_player == null)
             {
                 _player = PlayerMovement.GetPlayer();
@@ -35,6 +38,7 @@ namespace DefaultNamespace.Button
             var item = _itemFoodStorage.Get(name);
 
             inventory.AddItem(item);
+            print("Adding item: " + item.Name);
         }
     }
 }
