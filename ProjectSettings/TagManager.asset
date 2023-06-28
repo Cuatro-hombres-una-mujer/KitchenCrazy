@@ -18,9 +18,9 @@ TagManager:
   - Water
   - UI
   - 
-  - 
+  - TileMap
   - Coins
-  - 
+  - Particle System
   - 
   - 
   - 
@@ -46,4 +46,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Particle System
+    uniqueID: 538269365
+    locked: 0
+  - name: Tile Map
+    uniqueID: 1620130459
     locked: 0
