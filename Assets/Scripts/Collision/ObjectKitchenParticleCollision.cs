@@ -25,21 +25,11 @@ namespace DefaultNamespace.Collision
 
         private void OnCollisionStay2D(Collision2D other)
         {
-            
-            print("AAAAAR");
-            
             if (Input.GetKey(KeyCode.Space))
             {
-
                 var tag = other.gameObject.tag;
-                Debug.Log("Tag: " + tag);    
-                
                 var particle = _particles[tag];
-                
-                Debug.Log("Tag: " + tag);
-                
                 particle.SetActive(true);
-                Debug.Log("PARTICLE ACTIVED!!!");        
             }
         }
     }
