@@ -26,6 +26,7 @@ public class ClientHandlerScript : MonoBehaviour
         
         _clientPool = new ClientPool(quantity, clientPrefab, initialPositionVector, 
             movementStrategy, randomNames);
+        Debug.Log("Creating Client Pool");
         
     }
 

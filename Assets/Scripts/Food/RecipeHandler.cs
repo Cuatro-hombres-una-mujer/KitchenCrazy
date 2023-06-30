@@ -1,11 +1,11 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Food
 {
     public class RecipeHandler
     {
-
         private readonly IDictionary<string, Recipe> _recipes;
 
         public RecipeHandler()
@@ -22,7 +22,7 @@ namespace Food
                 Console.WriteLine("Es null");
                 return;
             }
-            
+
             _recipes.Add(itemFood.Name, recipe);
         }
 
@@ -30,7 +30,10 @@ namespace Food
         {
             return _recipes[name];
         }
-        
+
+        public List<Recipe> GetRecipes()
+        {
+            return _recipes.Values.ToList();
+        }
     }
-    
 }
