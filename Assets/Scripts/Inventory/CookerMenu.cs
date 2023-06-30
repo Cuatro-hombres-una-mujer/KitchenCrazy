@@ -18,7 +18,7 @@ public class CookerMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+/*
         if (Input.GetKeyDown(KeyCode.I))
         {
             _cookEnabled = !_cookEnabled;
@@ -32,7 +32,7 @@ public class CookerMenu : MonoBehaviour
         {
             kitchen.SetActive(false);
             Time.timeScale = 1f;
-        }
+        }*/
     }
     public void BackToGame(){
         _cookEnabled = !_cookEnabled;

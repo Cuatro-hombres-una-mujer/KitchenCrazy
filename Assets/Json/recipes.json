@@ -1,10 +1,10 @@
 [
   {
-    "item": {
+    "ItemFood": {
       "name": "Completo Italiano",
       "quantity": 1
     },
-    "ingredients": [
+    "Items": [
       "Tomate Picado",
       "Palta Molida",
       "Vienesa Cocida",
@@ -13,11 +13,11 @@
     ]
   },
   {
-    "item": {
+    "ItemFood": {
       "name": "Hamburguesa",
       "quantity": 1
     },
-    "ingredients": [
+    "Items": [
       "Tomate Picado",
       "Queso",
       "Carne Hamburguesa",
@@ -27,11 +27,11 @@
     ]
   },
   {
-    "item": {
+    "ItemFood": {
       "name": "Churrasco",
       "quantity": 1
     },
-    "ingredients": [
+    "Items": [
       "Tomate Picado",
       "Palta Molida",
       "Carne Churrasco",
@@ -40,11 +40,11 @@
     ]
   },
   {
-    "item": {
+    "ItemFood": {
       "name": "Pichanga",
       "quantity": 1
     },
-    "ingredients": [
+    "Items": [
       "Queso",
       "Carne Picada cocinada",
       "Vienesa Cocida",
@@ -54,32 +54,32 @@
     ]
   },
   {
-    "item": {
+    "ItemFood": {
       "name": "Salchi-Papa",
       "quantity": 1
     },
-    "ingredients": [
+    "Items": [
       "Papa Cocinada",
       "Vionesa cocinada",
       "Mayonesa"
     ]
   },
   {
-    "item": {
+    "ItemFood": {
       "name": "Papa-Frita",
       "quantity": 1
     },
-    "ingredients": [
+    "Items": [
       "Papa Cocinada",
       "Mayonesa"
     ]
   },
   {
-    "item": {
+    "ItemFood": {
       "name": "Barros Luco",
       "quantity": 1
     },
-    "ingredients": [
+    "Items": [
       "Queso",
       "Carne Churrasco",
       "Mayonesa",
@@ -87,11 +87,11 @@
     ]
   },
   {
-    "item": {
+    "ItemFood": {
       "name": "As",
       "quantity": 1
     },
-    "ingredients": [
+    "Items": [
       "Queso",
       "Carne Churrasco",
       "Mayonesa",

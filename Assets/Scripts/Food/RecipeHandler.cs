@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 
 namespace Food
 {
@@ -19,10 +20,11 @@ namespace Food
 
             if (itemFood == null)
             {
-                Console.WriteLine("Es null");
+                Debug.Log("Es null");
                 return;
             }
 
+            Debug.Log("Registered R");
             _recipes.Add(itemFood.Name, recipe);
         }
 
@@ -33,7 +35,16 @@ namespace Food
 
         public List<Recipe> GetRecipes()
         {
-            return _recipes.Values.ToList();
+
+            Debug.Log("A: " + _recipes.Count);
+            var recipesInList = new List<Recipe>();
+            
+            foreach (var recipesValue in _recipes.Values)
+            {
+                recipesInList.Add(recipesValue);
+            }
+
+            return recipesInList;
         }
     }
 }

@@ -40,15 +40,15 @@ namespace DefaultNamespace.Gui
             RefreshElements();
         }
 
-        private void RefreshElements()
+        public void  RefreshElements()
         {
             var items = _pagination.Search(_page);
             var hasNext = _pagination.Exists(_page + 1);
-            var hasPrevious = false;
+            var hasPrevious = true;
 
             if (_page == 1)
             {
-                hasPrevious = true;
+                hasPrevious = false;
             }
 
             _recipeGui.Refresh(items, hasNext, hasPrevious);
@@ -58,17 +58,25 @@ namespace DefaultNamespace.Gui
     public class RecipeGui
     {
         private int _arrowPosition;
-        private List<ComponentRecipeGui> _componentRecipeGuis;
+        private readonly List<ComponentRecipeGui> _componentRecipeGuis;
 
-        private GameObject _nextButton;
-        private GameObject _previousButton;
+        private readonly GameObject _nextButton;
+        private readonly GameObject _previousButton;
 
-        public RecipeGui()
+        public RecipeGui(GameObject nextButton, GameObject previousButton)
         {
+            _nextButton = nextButton;
+            _previousButton = previousButton;
+            
             _arrowPosition = 0;
             _componentRecipeGuis = new List<ComponentRecipeGui>();
         }
 
+        public void AddComponentRecipeGui(ComponentRecipeGui componentRecipeGui)
+        {
+            _componentRecipeGuis.Add(componentRecipeGui);
+        }
+        
         public void Refresh(List<Recipe> recipes, bool hasNext, bool hasPrevious)
         {
             _nextButton.SetActive(hasNext);
@@ -78,10 +86,12 @@ namespace DefaultNamespace.Gui
 
             for (var i = 0; i < recipes.Count; i++)
             {
+                
                 var recipe = recipes[i];
                 var component = _componentRecipeGuis[i];
                 var item = recipe.ItemFood;
-
+                Debug.Log("Insertando receta comida: " + item.Name);
+                
                 component.UpdateFoodName(item.Name, false);
             }
 

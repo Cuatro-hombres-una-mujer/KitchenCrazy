@@ -4,10 +4,10 @@ namespace Food
 {
     public class Recipe
     {
-        private List<ItemFood> Items { get; set; }
+        private List<string> Items { get; set; }
         public ItemFood ItemFood { get; set; }
 
-        public Recipe(List<ItemFood> items, ItemFood itemFood)
+        public Recipe(List<string> items, ItemFood itemFood)
         {
             Items = items;
             ItemFood = itemFood;
@@ -16,13 +16,14 @@ namespace Food
 
         public bool HasElements(Inventory inventoryHandler)
         {
+            /*
             foreach (var item in Items)
             {
                 if (!inventoryHandler.HasElementOrSuperior(item))
                 {
                     return false;
                 }
-            }
+            }*/
 
             return true;
         }
@@ -38,7 +39,7 @@ namespace Food
 
             foreach (var item in Items)
             {
-                inventoryHandler.DeleteItem(item);
+                //inventoryHandler.DeleteItem(item);
             }
          
         }
