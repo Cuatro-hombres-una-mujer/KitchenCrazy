@@ -66425,7 +66425,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textoCrono: {fileID: 1886385812}
-  tiempo: 10
+  tiempo: 10000
 --- !u!114 &1886385812
 MonoBehaviour:
   m_ObjectHideFlags: 0
