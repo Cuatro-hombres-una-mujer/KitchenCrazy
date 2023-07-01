@@ -6,7 +6,7 @@ namespace DefaultNamespace.Gui
 {
     public class OvenGuiHandler
     {
-        private List<SlotOven> _slotOvens;
+        private readonly List<SlotOven> _slotOvens;
 
         public OvenGuiHandler()
         {
@@ -26,6 +26,46 @@ namespace DefaultNamespace.Gui
         public SlotOven GetSlot(int position)
         {
             return _slotOvens[position];
+        }
+
+        public bool HasSlotFree()
+        {
+            foreach (var slotOven in _slotOvens)
+            {
+                if (!slotOven.IsInPreCooking())
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        public SlotOven GetFreeSlotOven()
+        {
+
+            foreach (var slotOven in _slotOvens)
+            {
+                if (!slotOven.IsInPreCooking())
+                {
+                    return slotOven;
+                }
+            }
+
+            return null;
+        }
+
+        public void CookItemFood(Preparation preparation)
+        {
+            var freeSlotOven = GetFreeSlotOven();
+
+            if (freeSlotOven == null)
+            {
+                //Warn it has not slot oven
+                return;
+            }
+            
+            freeSlotOven.StartCook(preparation);
         }
         
     }
@@ -84,6 +124,12 @@ namespace DefaultNamespace.Gui
             _itemCooked = _preparation.ItemCooked;
         }
 
+        
+        public bool IsInPreCooking()
+        {
+            return _cookState == CookState.PreCooking;
+        }
+        
         public void OnUpdate()
         {
             _seconds--;
@@ -92,7 +138,11 @@ namespace DefaultNamespace.Gui
             {
                 OnFinishCook();
             }
+            
+            
+            
         }
+
     }
 
     enum CookState

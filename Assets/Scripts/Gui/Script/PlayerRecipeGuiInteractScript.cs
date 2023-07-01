@@ -44,7 +44,7 @@ namespace DefaultNamespace
             var recipeHandler = ItemFoodStorageRecipeScript.GetRecipeHandler();
             
             _recipes = recipeHandler.GetRecipes();
-            var recipeGui = new RecipeGui(buttonNext, buttonPrevious);
+            var recipeGui = new RecipeGui(buttonNext, buttonPrevious, infoText);
 
             Debug.Log("> " + _recipes.Count);
             _recipeGuiHandler = new RecipeGuiHandler(_recipes, recipeGui);

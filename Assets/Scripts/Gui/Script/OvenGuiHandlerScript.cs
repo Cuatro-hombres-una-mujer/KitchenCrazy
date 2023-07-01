@@ -40,8 +40,19 @@ namespace Gui.Script
             var slotOven = _ovenGuiHandler.GetSlot(position);
             slotOven.GetFoodPrepared(_player);
         }
-        
-        
+
+        private void RefreshItemsForCook()
+        {
+            foreach (var slotOven in _ovenGuiHandler.GetSlots())
+            {
+                slotOven.OnUpdate();   
+            }
+        }
+
+        private void PressEnter()
+        {
+            //The logic when the player use enter
+        }
         
     }
 }

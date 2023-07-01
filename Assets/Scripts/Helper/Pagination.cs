@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace Helper
 {
@@ -25,8 +26,19 @@ namespace Helper
                 return new List<T>();
             }
 
-            int limit = Math.Min(result + _slots, _entities.Count);
-            return _entities.GetRange(result, limit);
+            //var limit = Math.Min(result + _slots, _entities.Count);
+            
+            Debug.Log("Entities Count: " + _entities.Count);
+            Debug.Log("Result: " + result);
+
+            var quantityMax = result + _slots;
+
+            if (quantityMax >= _entities.Count)
+            {
+                return _entities.GetRange(result, _entities.Count - result);
+            }
+            
+            return _entities.GetRange(result, _slots);
         }
 
         public bool Exists(int page)
