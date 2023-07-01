@@ -19,7 +19,7 @@ namespace Food
             var definitivePath = FileName + Root;
             
             var itemsCooked  = 
-                JsonConvert.DeserializeObject<List<ItemFoodCooked>>(definitivePath);
+                JsonConvert.DeserializeObject<List<Preparation>>(definitivePath);
 
             foreach (var itemCooked in itemsCooked)
             {

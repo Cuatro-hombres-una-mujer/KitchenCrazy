@@ -5,17 +5,17 @@ namespace Food
     public class ItemFoodCookedStorage
     {
 
-        private IDictionary<string, ItemFoodCooked> _itemsCooked;
+        private IDictionary<string, Preparation> _itemsCooked;
 
-        public void Register(ItemFoodCooked itemFoodCooked)
+        public void Register(Preparation preparation)
         {
-            var item = itemFoodCooked.Item;
+            var item = preparation.Item;
             
             _itemsCooked.Add(
-                item.Name, itemFoodCooked);
+                item.Name, preparation);
         }
 
-        public ItemFoodCooked Get(ItemFood item)
+        public Preparation Get(ItemFood item)
         {
             var name = item.Name;
 
