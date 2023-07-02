@@ -5,6 +5,8 @@ namespace DefaultNamespace.Time
 {
     public class TimeHandlerScript : MonoBehaviour
     {
+        
+        private int _nextUpdate = 1;
         [SerializeField] private int seconds;
         private static TimeHandler _timeHandler;
 
@@ -15,7 +17,13 @@ namespace DefaultNamespace.Time
 
         public void Update()
         {
-            _timeHandler.DiscountSecond();
+            
+            if(UnityEngine.Time.time >= _nextUpdate){
+                _nextUpdate= Mathf.FloorToInt(UnityEngine.Time.time) + 1;
+                _timeHandler.DiscountSecond();
+            }
+            
+            
         }
 
         public static TimeHandler GetTimeHandler()
