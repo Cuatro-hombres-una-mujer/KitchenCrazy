@@ -19,18 +19,13 @@ namespace Helper
 
         public List<T> Search(int page)
         {
-            int result = (page - 1) * _slots;
-
-            if (result > _entities.Count)
+            var result = (page - 1) * _slots;
+            
+            if (result > _entities.Count || _entities.Count == 0)
             {
                 return new List<T>();
             }
-
-            //var limit = Math.Min(result + _slots, _entities.Count);
             
-            Debug.Log("Entities Count: " + _entities.Count);
-            Debug.Log("Result: " + result);
-
             var quantityMax = result + _slots;
 
             if (quantityMax >= _entities.Count)

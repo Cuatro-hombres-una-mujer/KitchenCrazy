@@ -45,9 +45,16 @@ public class Inventory
         }
 
         var position = _positions[name];
+        var itemSearched = _items[position];
 
-        _positions.Remove(name);
-        _items.RemoveAt(position);
+        if (itemSearched.IsUnique())
+        {
+            _positions.Remove(name);
+            _items.RemoveAt(position);
+            return;
+        }
+        
+        itemSearched.Remove(item.Quantity);
     }
 
     public bool HasItem(ItemFood item)
@@ -86,12 +93,11 @@ public class Inventory
 
     public string GetItemsInString()
     {
-
         if (_items.Count == 0)
         {
             return "Nada :(";
         }
-        
+
         var stringBuilder = new StringBuilder();
         foreach (var item in _items)
         {
@@ -100,5 +106,4 @@ public class Inventory
 
         return stringBuilder.ToString();
     }
-    
 }

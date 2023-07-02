@@ -27,6 +27,11 @@ namespace Food
         {
             return _itemsRegistered[name];
         }
+
+        public bool Contains(string name)
+        {
+            return _itemsRegistered.ContainsKey(name);
+        }
         
     }
 }

@@ -21,11 +21,9 @@ namespace Food
         private void Awake()
         {
             _itemFoodStorage = new ItemFoodStorage();
-            IEnumerable lines = File.ReadLines(Root + FileName);
 
-            var jsonInString = StringHelper.ConvertToString(lines);
-
-            var items = JsonConvert.DeserializeObject<List<ItemFood>>(jsonInString);
+            var items = JsonHelper.GetAsJson<ItemFood>(Root, FileName);
+            
             foreach (var itemFood in items)
             {
                 _itemFoodStorage.Register(itemFood);

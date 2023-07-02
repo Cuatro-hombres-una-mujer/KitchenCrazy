@@ -11,19 +11,24 @@ namespace DefaultNamespace.Gui
 
         private int _positionSelected;
         private int _page;
-        
+        private int _lastPositionInsertedText;
+
         private readonly List<PartInventoryGuiHandler> _parts;
+        private List<ItemFood> _actualItemsSearched;
         private readonly Pagination<ItemFood> _pagination;
 
-        private GameObject _nextPageButton;
-        private GameObject _previousPageButton;
+        private readonly GameObject _nextPageButton;
+        private readonly GameObject _previousPageButton;
 
-        public InventoryGuiHandler(List<ItemFood> items, int slot)
+        public InventoryGuiHandler(List<ItemFood> items, int slot, GameObject nextPageButton,
+            GameObject previousPageButton)
         {
             _parts = new List<PartInventoryGuiHandler>();
             _page = 1;
             _positionSelected = 0;
             _pagination = Pagination<ItemFood>.Of(items, slot);
+            _nextPageButton = nextPageButton;
+            _previousPageButton = previousPageButton;
         }
 
         public void AddPart(PartInventoryGuiHandler part)
@@ -34,40 +39,28 @@ namespace DefaultNamespace.Gui
         public void NextPage()
         {
             _page++;
-            Show();
+            Refresh();
         }
 
         public void PreviousPage()
         {
             _page--;
-            Show();
+            Refresh();
         }
 
         public void Up()
         {
 
+            if (_actualItemsSearched.Count == 0)
+            {
+                return;
+            }
+            
             _parts[_positionSelected].Deselect();
             
             if (_positionSelected == 0)
             {
-                _positionSelected = _parts.Count - 1;
-            }
-            else
-            {
-                _positionSelected++;
-            }
-            
-            _parts[_positionSelected].Select();
-        }
-
-        public void Down()
-        {
-            
-            _parts[_positionSelected].Deselect();
-
-            if (_positionSelected == (_parts.Count - 1))
-            {
-                _positionSelected = 0;
+                _positionSelected = _lastPositionInsertedText;
             }
             else
             {
@@ -77,19 +70,61 @@ namespace DefaultNamespace.Gui
             _parts[_positionSelected].Select();
         }
 
-        public void Show()
+        public void Down()
         {
-            var items = _pagination.Search(_page);
 
+            if (ItemsIsEmpty())
+            {
+                return;
+            }
+            
+            _parts[_positionSelected].Deselect();
+
+            if (_positionSelected == _lastPositionInsertedText)
+            {
+                _positionSelected = 0;
+            }
+            else
+            {
+                _positionSelected++;
+            }
+            
+            _parts[_positionSelected].Select();
+        }
+
+        public bool ItemsIsEmpty()
+        {
+            return _actualItemsSearched.Count == 0;
+        }
+
+        public void Refresh()
+        {
+
+            foreach (var parts in _parts)
+            {
+                parts.HideLine();
+            }
+
+            var items = _pagination.Search(_page);
+            _actualItemsSearched = items;
+            _lastPositionInsertedText = -1;
+            
             for (var i = 0; i < _parts.Count; i++)
             {
+
+                if (i > items.Count - 1)
+                {
+                    break;
+                }
+                
                 var item = items[i];
                 var part = _parts[i];
                 
                 part.UpdateItem(item);
+                _lastPositionInsertedText++;
             }
 
-            if (_page != 1)
+            if (_page == 1)
             {
                 _previousPageButton.SetActive(false);
             }
@@ -104,11 +139,20 @@ namespace DefaultNamespace.Gui
             }
             else
             {
-                _previousPageButton.SetActive(false);
+                _nextPageButton.SetActive(false);
             }
-         
+
+            if (!ItemsIsEmpty())
+            {
+                _parts[0].Select();
+            }
             
             
+        }
+
+        public ItemFood GetItemSelected()
+        {
+            return _actualItemsSearched[_positionSelected];
         }
         
         
@@ -141,6 +185,12 @@ namespace DefaultNamespace.Gui
         public void Deselect()
         {
             _arrow.SetActive(false);       
+        }
+
+        public void HideLine()
+        {
+            _contentText.text = "";
+            _arrow.SetActive(false);
         }
         
     }
