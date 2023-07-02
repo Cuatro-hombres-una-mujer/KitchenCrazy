@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Food;
 using Food.Order;
+using Helper;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -14,9 +15,8 @@ namespace Entities
         private readonly IMovementStrategy _movementStrategy;
         private readonly Vector2 _vectorInitialPosition;
         private readonly GameObject _clientPrefab;
-
-        private readonly List<GameObject> _entities;
-        private IDictionary<string, Client> _clients;
+        
+        private readonly IDictionary<string, Client> _clients;
 
         private readonly int _quantity;
 
@@ -28,7 +28,6 @@ namespace Entities
             _clientPrefab = clientPrefab;
             _vectorInitialPosition = vectorInitialPosition;
 
-            _entities = new List<GameObject>();
             _clients = new Dictionary<string, Client>();
 
             _movementStrategy = movementStrategy;
@@ -45,12 +44,12 @@ namespace Entities
                     _vectorInitialPosition, Quaternion.identity);
 
                 gameObject.SetActive(false);
-                _entities.Add(gameObject);
+          
 
-                var realName = GetRandomName();
+                var realName = ListHelper.RandomValueList(_randomNames);
                 
                 var client = new Client(false,
-                    gameObject.name, realName);
+                    gameObject.name, realName, gameObject);
 
                 var orderGenerator = ItemFoodStorageScript.GetOrderGenerator();
                 
@@ -61,7 +60,7 @@ namespace Entities
             }
         }
 
-        public void Spawn()
+        public void Spawn(LocationClient location)
         {
             var clientGameObject = GetFreeClient();
 
@@ -71,9 +70,19 @@ namespace Entities
             }
 
             clientGameObject.SetActive(true);
+            var transform = clientGameObject.transform;
 
+            var newPosition = new Vector3(location.x, location.y, transform.position.z);
+            transform.position = newPosition;
+            
             var client = GetClient(clientGameObject.name);
             client.StartWalk();
+        }
+
+        public void UnSpawn(Client client)
+        {
+            var gameObjectClient = client.ClientObject;
+            gameObjectClient.SetActive(false);
         }
 
         public Client GetClient(string name)
@@ -83,11 +92,13 @@ namespace Entities
 
         public GameObject GetFreeClient()
         {
-            foreach (var entity in _entities)
+            foreach (var client in _clients.Values)
             {
-                if (!entity.activeSelf)
+                var clientGameObject = client.ClientObject;
+                
+                if (!clientGameObject.activeSelf)
                 {
-                    return entity;
+                    return clientGameObject;
                 }
             }
 
@@ -99,11 +110,5 @@ namespace Entities
             return _movementStrategy;
         }
 
-        private string GetRandomName()
-        {
-            var randomPosition = Random.Range(0, _randomNames.Count);
-            return _randomNames[randomPosition];
-        }
-        
     }
 }

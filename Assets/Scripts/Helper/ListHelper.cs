@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using UnityEngine;
 
 namespace Helper
 {
@@ -10,6 +11,12 @@ namespace Helper
         {
             return collection.Count - 1;
         }
-        
+
+        public static T RandomValueList<T>(List<T> list)
+        {
+            var valueInt = Random.Range(0, list.Count);
+            return list[valueInt];
+        }
+
     }
 }

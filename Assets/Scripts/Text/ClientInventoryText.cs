@@ -49,9 +49,9 @@ namespace DefaultNamespace.Text
             _made = made;
         }
 
-        public void Made(bool made)
+        public void Made()
         {
-            _made = made;
+            _made = true;
         }
 
         public void UpdateText(string itemNameTextValue)
