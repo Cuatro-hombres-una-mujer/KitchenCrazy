@@ -21,7 +21,6 @@ namespace Food
             
             foreach (var recipe in recipes)
             {
-                print("Preparation registered");
                 _preparationStorage.Register(recipe);
             }
             

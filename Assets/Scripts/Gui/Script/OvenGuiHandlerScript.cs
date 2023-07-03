@@ -60,8 +60,6 @@ namespace Gui.Script
             _ovenGuiHandler = new OvenGuiHandler(_player.Inventory, itemsCanCooked, nextInventoryButton
             ,previousInventoryButton);
             
-            Debug.Log("Instance OvenGui");
-            
             _ovenGuiHandler.AddSlotOven(new SlotOven(firstButtonOvenText));
             _ovenGuiHandler.AddSlotOven(new SlotOven(secondButtonOvenText));
             _ovenGuiHandler.AddSlotOven(new SlotOven(thirdButtonOvenText));
@@ -159,7 +157,6 @@ namespace Gui.Script
 
         public void OnClickButtonInKitchen(int position)
         {
-            Debug.Log("Clicked, in the button: " + position);
             var slot = _ovenGuiHandler.GetSlot(position);
             var reply = slot.GetFoodPrepared(_player);
 

@@ -20,10 +20,6 @@ namespace Food
             {
                 _preparations.Add(item.Name, preparation);    
             }
-            else
-            {
-                
-            }
             
         }
 

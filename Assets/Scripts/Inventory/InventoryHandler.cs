@@ -78,8 +78,7 @@ public class Inventory
     public List<ItemFood> GetItems()
     {
         List<ItemFood> itemsFoodList = new List<ItemFood>(_items.Values);
-        Debug.Log("RR: " +itemsFoodList.Count);
-        
+
         return itemsFoodList;
     }
 

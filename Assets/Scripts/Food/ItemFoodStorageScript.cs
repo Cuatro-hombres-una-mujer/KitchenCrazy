@@ -30,7 +30,6 @@ namespace Food
                 _itemFoodStorage.Register(itemFood);
             }
             
-            Debug.Log("CREATING ORDER GENERATOR");
             _orderGenerator = new OrderGenerator(items);
         }
 

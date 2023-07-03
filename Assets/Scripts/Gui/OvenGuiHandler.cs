@@ -146,7 +146,6 @@ namespace DefaultNamespace.Gui
         {
             if (_cookState != CookState.Ready)
             {
-                Debug.Log("No está listo");
                 return false;
             }
 
