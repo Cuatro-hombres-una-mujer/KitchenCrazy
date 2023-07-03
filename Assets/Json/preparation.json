@@ -9,5 +9,49 @@
       "quantity": 1
     },
     "seconds": 6
+  },
+  {
+    "Item": {
+      "name": "Pollo",
+      "quantity": 1
+    },
+    "ItemCooked": {
+      "name": "Pollo Cocinado",
+      "quantity": 1
+    },
+    "seconds": 10
+  },
+  {
+    "Item": {
+      "name": "Carne Churrasco",
+      "quantity": 1
+    },
+    "ItemCooked": {
+      "name": "Carne Churrasco Cocinada",
+      "quantity": 1
+    },
+    "seconds": 10
+  },
+  {
+    "Item": {
+      "name": "Hamburguesa",
+      "quantity": 1
+    },
+    "ItemCooked": {
+      "name": "Hamburguesa Cocinada",
+      "quantity": 1
+    },
+    "seconds": 10
+  },
+  {
+    "Item": {
+      "name": "Huevo",
+      "quantity": 1
+    },
+    "ItemCooked": {
+      "name": "Huevo Frito",
+      "quantity": 1
+    },
+    "seconds": 4
   }
 ]

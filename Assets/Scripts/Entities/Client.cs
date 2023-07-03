@@ -10,7 +10,7 @@ namespace Entities
         private List<Order> _orders;
         private bool _isWalking;
         public string NameGameObject { get; }
-        public string Name { get; }
+        public string Name { get; set; }
 
         public GameObject ClientObject { get; set; }
 

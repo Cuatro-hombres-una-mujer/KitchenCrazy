@@ -17,7 +17,7 @@ namespace Food
             
             if (_itemsRegistered.ContainsKey(itemFood.Name))
             {
-                throw new Exception("The food already is registered");
+                throw new Exception("The food " + itemFood.Name + "already is registered");
             }
             
             _itemsRegistered[itemFood.Name] = itemFood;
@@ -25,7 +25,7 @@ namespace Food
 
         public ItemFood Get(string name)
         {
-            return _itemsRegistered[name];
+            return _itemsRegistered[name].Copy();
         }
 
         public bool Contains(string name)

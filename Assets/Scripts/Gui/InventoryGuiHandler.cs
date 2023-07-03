@@ -9,24 +9,27 @@ namespace DefaultNamespace.Gui
     public class InventoryGuiHandler
     {
 
+        private int _slot = 0;
         private int _positionSelected;
         private int _page;
         private int _lastPositionInsertedText;
 
+        private readonly Inventory _inventory;
         private readonly List<PartInventoryGuiHandler> _parts;
         private List<ItemFood> _actualItemsSearched;
-        private readonly Pagination<ItemFood> _pagination;
+        private Pagination<ItemFood> _pagination;
 
         private readonly GameObject _nextPageButton;
         private readonly GameObject _previousPageButton;
 
-        public InventoryGuiHandler(List<ItemFood> items, int slot, GameObject nextPageButton,
+        public InventoryGuiHandler(Inventory inventory, int slot, GameObject nextPageButton,
             GameObject previousPageButton)
         {
+            _slot = slot;
+            _inventory = inventory;
             _parts = new List<PartInventoryGuiHandler>();
             _page = 1;
             _positionSelected = 0;
-            _pagination = Pagination<ItemFood>.Of(items, slot);
             _nextPageButton = nextPageButton;
             _previousPageButton = previousPageButton;
         }
@@ -99,6 +102,7 @@ namespace DefaultNamespace.Gui
 
         public void Refresh()
         {
+            _pagination = Pagination<ItemFood>.Of(_inventory.GetItems(), _slot);
 
             foreach (var parts in _parts)
             {

@@ -11,16 +11,14 @@ namespace DefaultNamespace.Gui
         private const int Slots = 3;
         private Pagination<Recipe> _pagination;
         private int _page;
-        private RecipeGui _recipeGui;
-        private readonly List<Recipe> _recipes;
+        private readonly RecipeGui _recipeGui;
 
         public RecipeGuiHandler(List<Recipe> recipes, RecipeGui recipeGui)
         {
-            _recipes = recipes;
             _page = 1;
             _recipeGui = recipeGui;
 
-            _pagination = new Pagination<Recipe>(_recipes, Slots);
+            _pagination = new Pagination<Recipe>(recipes, Slots);
         }
 
         public RecipeGui GetRecipeGui()
@@ -134,6 +132,11 @@ namespace DefaultNamespace.Gui
             ShowIngredients();
         }
 
+        public Recipe GetViewingRecipe()
+        {
+            return _recipes[_arrowPosition];
+        }
+        
         public void Left()
         {
             GetComponentInArrow().Invisible();

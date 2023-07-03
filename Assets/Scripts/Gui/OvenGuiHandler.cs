@@ -21,7 +21,8 @@ namespace DefaultNamespace.Gui
             GameObject nextPageButton, GameObject previousPageButton)
         {
             _slotOvens = new List<SlotOven>();
-            _inventoryGuiHandler = new InventoryGuiHandler(inventory.GetItems(), Slots,
+
+            _inventoryGuiHandler = new InventoryGuiHandler(inventory, Slots,
                 nextPageButton, previousPageButton);
             _itemsCanCooked = itemsCanCooked;
         }

@@ -24,6 +24,8 @@ namespace DefaultNamespace
         [SerializeField] private GameObject buttonNext;
         [SerializeField] private GameObject buttonPrevious;
 
+        [SerializeField] private GameObject inventoryRecipeGuiGameObject;
+
         private static RecipeGuiHandler _recipeGuiHandler;
 
         private const string InventoryName = "recipe_inventory";
@@ -81,6 +83,18 @@ namespace DefaultNamespace
                 {
                     recipeGui.Left();
                 }
+
+                if (Input.GetKeyDown(KeyCode.Return))
+                {
+                    OnPressEnter();
+                }
+
+                if (Input.GetKeyDown(KeyCode.Escape))
+                {
+                    inventoryRecipeGuiGameObject.SetActive(false);
+                    _player.CloseInventory();
+                }
+
             }
         }
 
@@ -98,6 +112,23 @@ namespace DefaultNamespace
         {
             _recipeGuiHandler.PreviousPage();
         }
-        
+
+        public void OnPressEnter()
+        {
+            
+            var recipeGui = _recipeGuiHandler.GetRecipeGui();
+            var recipe = recipeGui.GetViewingRecipe();
+            var inventory = _player.Inventory;
+
+            if (!recipe.HasElements(inventory))
+            {
+                Debug.Log("No tiene los items");
+                //Warn it has no elements
+                return;
+            }
+            
+            recipe.Cook(_player.Inventory);
+        }
+
     }
 }

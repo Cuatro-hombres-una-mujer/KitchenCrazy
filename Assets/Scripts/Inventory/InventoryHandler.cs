@@ -7,32 +7,29 @@ using UnityEngine;
 
 public class Inventory
 {
-    private readonly List<ItemFood> _items;
-    private readonly IDictionary<string, int> _positions;
+    
+    //private readonly List<ItemFood> _items;
+    private readonly IDictionary<string, ItemFood> _items;
 
     public Inventory()
     {
-        _items = new List<ItemFood>();
-        _positions = new Dictionary<string, int>();
+        //_items = new List<ItemFood>();
+        _items = new Dictionary<string, ItemFood>();
     }
 
     public void AddItem(ItemFood itemAdded)
     {
         var name = itemAdded.Name;
+        
         if (HasItem(itemAdded))
         {
             ItemFood itemFood = GetItem(name);
-
+            
             itemFood.Quantity = itemFood.Quantity + itemAdded.Quantity;
-
-
             return;
         }
 
-        _items.Add(itemAdded);
-        var position = _items.Count - 1;
-
-        _positions[name] = position;
+        _items[name] = itemAdded;
     }
 
     public void DeleteItem(ItemFood item)
@@ -44,13 +41,11 @@ public class Inventory
             return;
         }
 
-        var position = _positions[name];
-        var itemSearched = _items[position];
-
+        var itemSearched = _items[name];
+        
         if (itemSearched.IsUnique())
         {
-            _positions.Remove(name);
-            _items.RemoveAt(position);
+            _items.Remove(name);
             return;
         }
         
@@ -59,18 +54,12 @@ public class Inventory
 
     public bool HasItem(ItemFood item)
     {
-        return _positions.ContainsKey(item.Name);
+        return _items.ContainsKey(item.Name);
     }
-
-    public ItemFood GetItem(int slot)
-    {
-        return _items[slot];
-    }
-
+    
     public ItemFood GetItem(string name)
     {
-        var position = _positions[name];
-        return _items[position];
+        return _items[name];
     }
 
     public bool HasElementOrSuperior(ItemFood itemFood)
@@ -88,7 +77,10 @@ public class Inventory
 
     public List<ItemFood> GetItems()
     {
-        return _items;
+        List<ItemFood> itemsFoodList = new List<ItemFood>(_items.Values);
+        Debug.Log("RR: " +itemsFoodList.Count);
+        
+        return itemsFoodList;
     }
 
     public string GetItemsInString()
@@ -99,7 +91,7 @@ public class Inventory
         }
 
         var stringBuilder = new StringBuilder();
-        foreach (var item in _items)
+        foreach (var item in GetItems())
         {
             stringBuilder.Append(item.Name).Append(StringHelper.SpaceLine);
         }

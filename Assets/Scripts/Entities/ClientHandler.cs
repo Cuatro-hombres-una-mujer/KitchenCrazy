@@ -8,22 +8,23 @@ namespace Entities
     public class ClientHandler
     {
 
-        private const int QuantityMaxClients = 2;
+        private const int QuantityMaxClients = 4;
         private readonly ClientPool _clientPool;
         private List<LocationClient> _locations;
         private ClientInventoryText _clientInventoryText;
         private readonly GameObject _clientHandlerInventory;
 
-        public ClientHandler(ClientPool clientPool, GameObject clientHandlerInventory)
+        public ClientHandler(ClientPool clientPool, GameObject clientHandlerInventory,
+            List<LocationClient> locations)
         {
             _clientPool = clientPool;
             _clientHandlerInventory = clientHandlerInventory;
+            _locations = locations;
         }
 
         public void FinishOrder(Player.Player player, string clientName)
         {
             var client = _clientPool.GetClient(clientName);
-            var gameObjectClient = client.ClientObject;
 
             if (!client.AllOrdersAreReady())
             {
@@ -48,6 +49,7 @@ namespace Entities
 
             if (!inventory.HasItem(itemOrdered))
             {
+                Debug.Log("Has no items");
                 //Warn it, no has items
                 return;
             }
@@ -61,12 +63,17 @@ namespace Entities
 
         public void GenerateClients()
         {
-            var quantityClient = Random.Range(0, QuantityMaxClients);
+            var quantityClient = Random.Range(1, QuantityMaxClients);
             for (var i = 0; i < quantityClient; i++)
             {
                 _clientPool.Spawn(GetFreeAndRandomLocation());
             }
             
+        }
+
+        public string GetViewingClient()
+        {
+            return _clientInventoryText.GetClientName();
         }
 
         public LocationClient GetFreeAndRandomLocation()

@@ -44,25 +44,24 @@ namespace Entities
                     _vectorInitialPosition, Quaternion.identity);
 
                 gameObject.SetActive(false);
-          
 
-                var realName = ListHelper.RandomValueList(_randomNames);
+                var idObject = IdentifierUtility.GenerateRandoId();
+                gameObject.name = idObject;
                 
                 var client = new Client(false,
-                    gameObject.name, realName, gameObject);
+                    gameObject.name, null, gameObject);
 
-                var orderGenerator = ItemFoodStorageScript.GetOrderGenerator();
-                
                 Debug.Log(">> GENERATING NEW ORDER FOR CLIENT");
-                client.SetOrders(orderGenerator.Generate());
-                
+
                 _clients[gameObject.name] = client;
             }
         }
 
         public void Spawn(LocationClient location)
         {
-            var clientGameObject = GetFreeClient();
+
+            var clientFree = GetFreeClient();
+            var clientGameObject = clientFree.ClientObject;
 
             if (clientGameObject == null)
             {
@@ -72,11 +71,23 @@ namespace Entities
             clientGameObject.SetActive(true);
             var transform = clientGameObject.transform;
 
+            Debug.Log("x: " + location.x);
+            Debug.Log("y: " + location.y);
+
             var newPosition = new Vector3(location.x, location.y, transform.position.z);
             transform.position = newPosition;
-            
+
+            var realName = ListHelper.RandomValueList(_randomNames);
+
             var client = GetClient(clientGameObject.name);
-            client.StartWalk();
+            client.Name = realName;
+
+            var orderGenerator = ItemFoodStorageScript.GetOrderGenerator();
+            
+
+            client.SetOrders(orderGenerator.Generate());
+
+
         }
 
         public void UnSpawn(Client client)
@@ -90,7 +101,7 @@ namespace Entities
             return _clients[name];
         }
 
-        public GameObject GetFreeClient()
+        public Client GetFreeClient()
         {
             foreach (var client in _clients.Values)
             {
@@ -98,7 +109,7 @@ namespace Entities
                 
                 if (!clientGameObject.activeSelf)
                 {
-                    return clientGameObject;
+                    return client;
                 }
             }
 

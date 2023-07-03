@@ -21,7 +21,8 @@ namespace Food
         private void Awake()
         {
             _itemFoodStorage = new ItemFoodStorage();
-
+            
+            
             var items = JsonHelper.GetAsJson<ItemFood>(Root, FileName);
             
             foreach (var itemFood in items)
@@ -29,6 +30,7 @@ namespace Food
                 _itemFoodStorage.Register(itemFood);
             }
             
+            Debug.Log("CREATING ORDER GENERATOR");
             _orderGenerator = new OrderGenerator(items);
         }
 

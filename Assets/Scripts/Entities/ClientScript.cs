@@ -58,11 +58,26 @@ public class ClientScript : MonoBehaviour
             _rigidbody = GetComponent<Rigidbody2D>();
         }
 
+        SetMenuData();
+        
+        
+    }
+
+    private void SetMenuData()
+    {
         var clientInventoryText = ClientInventoryScript.GetClientInventoryText();
         var player = PlayerMovement.GetPlayer();
         
-        clientInventoryText.SetTitle(_client.Name);
+        foreach(var part in clientInventoryText.GetParts())
+        {
+           part.GetButton().SetActive(false); 
+           part.GetImageObject().SetActive(false);
+           part.UpdateText(string.Empty);
+        }
 
+        clientInventoryText.SetTitle(_client.Name);
+        
+        Debug.Log(_client.GetOrders().Count);
         for (var i = 0; i < _client.GetOrders().Count; i++)
         {
             var order = _client.GetOrders()[i];
@@ -72,13 +87,17 @@ public class ClientScript : MonoBehaviour
 
             var part = clientInventoryText.GetPart(i);
             part.UpdateText(orderFormat);
-            part.Made(order.IsReady);
+            part.GetButton().SetActive(true);
+
+            if (order.IsReady)
+            {
+                part.Made();
+            }
+
+            player.OpenInventory(ClientNameInventory);
+            clientInventoryGameObject.SetActive(true);
             
         }
-
-        player.OpenInventory(ClientNameInventory);
-        clientInventoryGameObject.SetActive(true);
-        
     }
 
     private void OnCollisionEnter(Collision other)

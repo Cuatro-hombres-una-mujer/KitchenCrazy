@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Food
 {
-    public class ItemFood
+    public class ItemFood : Copyable<ItemFood>
     {
         public string Name { get; set;  }
         public int Quantity { get; set; }
@@ -35,6 +35,11 @@ namespace Food
             {
                 Quantity = 0;
             }
+        }
+
+        public ItemFood Copy()
+        {
+            return new ItemFood(Name, Quantity);
         }
         
     }

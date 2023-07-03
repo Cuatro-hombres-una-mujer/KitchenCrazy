@@ -6,15 +6,15 @@
     },
     "Items": [
       {
-        "name": "Tomate Picado",
+        "name": "Tomate",
         "quantity": 1
       },
       {
-        "name": "Palta Molida",
+        "name": "Palta",
         "quantity": 1
       },
       {
-        "name": "Vienesa Cocida",
+        "name": "Vienesa Cocinada",
         "quantity": 1
       },
       {
@@ -34,7 +34,7 @@
     },
     "Items": [
       {
-        "name": "Tomate Picad",
+        "name": "Tomate",
         "quantity": 1
       },
       {
@@ -42,7 +42,7 @@
         "quantity": 1
       },
       {
-        "name": "Carne Hamburguesa",
+        "name": "Hamburguesa Cocinada",
         "quantity": 1
       },
       {
@@ -50,7 +50,7 @@
         "quantity": 1
       },
       {
-        "name": "Lechuga picada",
+        "name": "Lechuga",
         "quantity": 1
       },
       {
@@ -66,15 +66,15 @@
     },
     "Items": [
       {
-        "name": "Tomate Picado",
+        "name": "Tomate",
         "quantity": 1
       },
       {
-        "name": "Palta Molida",
+        "name": "Palta",
         "quantity": 1
       },
       {
-        "name": "Carne Churrasco",
+        "name": "Carne Churrasco Cocinada",
         "quantity": 1
       },
       {
@@ -106,27 +106,27 @@
         "quantity": 1
       },
       {
-        "name": "pollo cocinado",
+        "name": "Pollo Cocinado",
         "quantity": 1
       },
       {
-        "name": "Papa Cocinada",
+        "name": "Papas Fritas",
         "quantity": 1
       }
     ]
   },
   {
     "ItemFood": {
-      "name": "Salchi-Papa",
+      "name": "Salchi Papa",
       "quantity": 1
     },
     "Items": [
       {
-        "name": "Papa Cocinada",
+        "name": "Papas Fritas",
         "quantity": 1
       },
       {
-        "name": "Vionesa cocinada",
+        "name": "Vianesa Cocinada",
         "quantity": 1
       },
       {
@@ -146,7 +146,7 @@
         "quantity": 1
       },
       {
-        "name": "Carne Churrasco",
+        "name": "Carne Churrasco Cocinada",
         "quantity": 1
       },
       {
@@ -166,7 +166,7 @@
         "quantity": 1
       },
       {
-        "name": "Carne Churrasco",
+        "name": "Carne Churrasco Cocinada",
         "quantity": 1
       },
       {
