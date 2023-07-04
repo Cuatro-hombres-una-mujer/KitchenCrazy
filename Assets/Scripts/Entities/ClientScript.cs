@@ -67,6 +67,7 @@ public class ClientScript : MonoBehaviour
     {
         var clientInventoryText = ClientInventoryScript.GetClientInventoryText();
         var player = PlayerMovement.GetPlayer();
+        var gameObject = _client.ClientObject;
         
         foreach(var part in clientInventoryText.GetParts())
         {
@@ -76,6 +77,7 @@ public class ClientScript : MonoBehaviour
         }
 
         clientInventoryText.SetTitle(_client.Name);
+        clientInventoryText.SetIdClient(gameObject.name);
         
         Debug.Log(_client.GetOrders().Count);
         for (var i = 0; i < _client.GetOrders().Count; i++)

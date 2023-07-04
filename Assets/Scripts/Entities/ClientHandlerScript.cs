@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DefaultNamespace.Text;
 using Entities;
 using Entities.Player;
 using Helper;
@@ -14,7 +15,8 @@ public class ClientHandlerScript : MonoBehaviour
     
     private static ClientPool _clientPool;
     private static ClientHandler _clientHandler;
-
+    private static ClientInventoryText _clientInventoryText;
+    
     private Player _player;
     private const string ClientNameInventory = "client_inventory";
 
@@ -25,6 +27,8 @@ public class ClientHandlerScript : MonoBehaviour
     [SerializeField] private float y;
     [SerializeField] private GameObject clientInventoryGameObject;
 
+    
+    
     void Start()
     {
         var initialPositionVector = new Vector2(x, y);
@@ -36,7 +40,11 @@ public class ClientHandlerScript : MonoBehaviour
         var locations = JsonHelper.
             GetAsJson<LocationClient>(Root + FileName);
 
-        _clientHandler = new ClientHandler(_clientPool, clientInventoryGameObject, locations);
+        _clientInventoryText = ClientInventoryScript.GetClientInventoryText();
+        
+        _clientHandler = new ClientHandler(_clientPool, clientInventoryGameObject, locations,
+            _clientInventoryText);
+        
         Debug.Log("Creating Client Pool");
         
         StartCoroutine(SpawnClientInStart());
@@ -67,7 +75,8 @@ public class ClientHandlerScript : MonoBehaviour
 
     public void OnClickOrder(int position)
     {
-        var clientName = _clientHandler.GetViewingClient();
+        var clientName = _clientHandler.GetViewingClientId();
+        Debug.Log("Client Name Inventory: " + clientName);
         _clientHandler.FinishPartOrder(_player, position, clientName);   
     }
     public static ClientPool GetMainClientPool()

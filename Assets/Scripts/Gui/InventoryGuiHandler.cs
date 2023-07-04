@@ -6,7 +6,25 @@ using UnityEngine;
 
 namespace DefaultNamespace.Gui
 {
-    public class InventoryGuiHandler
+
+    public interface IInventoryGuiHandler
+    {
+
+        void AddPart(PartInventoryGuiHandler partInventoryGuiHandler);
+
+        void Down();
+
+        void Up();
+
+        ItemFood GetItemSelected();
+
+        bool ItemSelectedIsEmpty();
+
+        void Refresh();
+
+    }
+    
+    public class InventoryGuiHandler : IInventoryGuiHandler
     {
 
         private int _slot = 0;
@@ -76,7 +94,7 @@ namespace DefaultNamespace.Gui
         public void Down()
         {
 
-            if (ItemsIsEmpty())
+            if (ItemSelectedIsEmpty())
             {
                 return;
             }
@@ -95,7 +113,7 @@ namespace DefaultNamespace.Gui
             _parts[_positionSelected].Select();
         }
 
-        public bool ItemsIsEmpty()
+        public bool ItemSelectedIsEmpty()
         {
             return _actualItemsSearched.Count == 0;
         }
@@ -146,7 +164,7 @@ namespace DefaultNamespace.Gui
                 _nextPageButton.SetActive(false);
             }
 
-            if (!ItemsIsEmpty())
+            if (!ItemSelectedIsEmpty())
             {
                 _parts[0].Select();
             }

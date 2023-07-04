@@ -10,16 +10,17 @@ namespace Entities
 
         private const int QuantityMaxClients = 4;
         private readonly ClientPool _clientPool;
-        private List<LocationClient> _locations;
-        private ClientInventoryText _clientInventoryText;
+        private readonly List<LocationClient> _locations;
+        private readonly ClientInventoryText _clientInventoryText;
         private readonly GameObject _clientHandlerInventory;
 
         public ClientHandler(ClientPool clientPool, GameObject clientHandlerInventory,
-            List<LocationClient> locations)
+            List<LocationClient> locations, ClientInventoryText clientInventoryText)
         {
             _clientPool = clientPool;
             _clientHandlerInventory = clientHandlerInventory;
             _locations = locations;
+            _clientInventoryText = clientInventoryText;
         }
 
         public void FinishOrder(Player.Player player, string clientName)
@@ -37,6 +38,7 @@ namespace Entities
             _clientHandlerInventory.SetActive(false);
             player.CloseInventory();
             _clientPool.UnSpawn(client);
+            GenerateClients();
         }
 
         public void FinishPartOrder(Player.Player player, int position, string clientName)
@@ -54,10 +56,18 @@ namespace Entities
                 return;
             }
 
+            Debug.Log("Yes it contains the items");
             order.Ready();
+            
+            Debug.Log("Deleting items");
             inventory.DeleteItem(itemOrdered);
             var part = _clientInventoryText.GetPart(position);
+            
+            Debug.Log("Maded!");
             part.Made();
+
+            FinishOrder(player, clientName);
+            
             
         }
 
@@ -71,9 +81,9 @@ namespace Entities
             
         }
 
-        public string GetViewingClient()
+        public string GetViewingClientId()
         {
-            return _clientInventoryText.GetClientName();
+            return _clientInventoryText.GetClientId();
         }
 
         public LocationClient GetFreeAndRandomLocation()

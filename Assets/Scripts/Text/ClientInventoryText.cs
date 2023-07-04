@@ -8,6 +8,7 @@ namespace DefaultNamespace.Text
     public class ClientInventoryText
     {
         private readonly List<OrderPartInventoryText> _parts;
+        private string _idClient;
         private readonly TextMeshProUGUI _title;
 
         public ClientInventoryText(TextMeshProUGUI title)
@@ -18,20 +19,29 @@ namespace DefaultNamespace.Text
 
         public void SetTitle(string titleValue)
         {
-
             if (_title.text == titleValue)
             {
                 return;
             }
-            
+
             _title.text = titleValue;
         }
 
+        public void SetIdClient(string idClient)
+        {
+            _idClient = idClient;
+        }
+        
         public string GetClientName()
         {
             return _title.text;
         }
 
+        public string GetClientId()
+        {
+            return _idClient;
+        }
+        
         public void AddPart(OrderPartInventoryText orderPartInventoryText)
         {
             _parts.Add(orderPartInventoryText);
@@ -46,7 +56,6 @@ namespace DefaultNamespace.Text
         {
             return _parts;
         }
-
     }
 
     public class OrderPartInventoryText
@@ -56,7 +65,7 @@ namespace DefaultNamespace.Text
         private readonly GameObject _image;
         private bool _made;
 
-        public OrderPartInventoryText(TextMeshProUGUI itemNameText, GameObject button, 
+        public OrderPartInventoryText(TextMeshProUGUI itemNameText, GameObject button,
             GameObject image, bool made)
         {
             _itemNameText = itemNameText;
