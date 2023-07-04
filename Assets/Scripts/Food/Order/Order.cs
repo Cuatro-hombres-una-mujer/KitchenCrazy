@@ -11,5 +11,11 @@ namespace Food.Order
             IsReady = false;
 
         }
+        
+        public void Ready()
+        {
+            IsReady = true;
+        }
+        
     }
 }

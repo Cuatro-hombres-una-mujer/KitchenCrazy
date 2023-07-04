@@ -12,6 +12,7 @@ TagManager:
   - Pantry
   - Fryer
   - RecipeBook
+  - Freezer
   layers:
   - Default
   - TransparentFX

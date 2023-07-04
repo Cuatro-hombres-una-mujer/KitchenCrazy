@@ -17,14 +17,10 @@ namespace Food
         {
             _recipeHandler = new RecipeHandler();
 
-            var lines = File.ReadLines(Root + FileName);
-            var jsonInString = StringHelper.ConvertToString(lines);
-
-            var recipes = JsonConvert.DeserializeObject< List<Recipe>> (jsonInString);
+            var recipes = JsonHelper.GetAsJson<Recipe>(Root, FileName);
 
             foreach (var recipe in recipes)
             {
-                print("Recipe registered");
                 _recipeHandler.Register(recipe);
             }
 

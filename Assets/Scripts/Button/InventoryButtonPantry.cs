@@ -14,7 +14,6 @@ namespace DefaultNamespace.Button
 
         public void OnBack()
         {
-            Console.WriteLine(":ON BACK");
             _player.CloseInventory();
             canvasPantry.SetActive(false);
         }

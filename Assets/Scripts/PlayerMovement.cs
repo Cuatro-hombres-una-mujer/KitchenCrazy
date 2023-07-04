@@ -27,19 +27,6 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            var clientPool = ClientHandlerScript.GetMainClientPool();
-
-            if (clientPool == null)
-            {
-                print("Es null el client pooll");
-                return;
-            }
-
-            clientPool.Spawn();
-            print("Spawned");
-        }
 
         if (_player.HasOpenInventory())
         {

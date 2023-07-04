@@ -2,10 +2,12 @@ using UnityEngine;
 
 namespace Food
 {
-    public class ItemFood
+    public class ItemFood : Copyable<ItemFood>
     {
         public string Name { get; set;  }
         public int Quantity { get; set; }
+        
+        public SpriteRenderer SpriteRenderer { get; set; }
         
         public bool RequestedForClient { get; set; }
 
@@ -14,10 +16,31 @@ namespace Food
             Name = name;
             Quantity = quantity;
         }
-        
+
         public bool Equals(ItemFood itemFood)
         {
             return Name == itemFood.Name;
         }
+
+        public bool IsUnique()
+        {
+            return Quantity == 1;
+        }
+
+        public void Remove(int quantity)
+        {
+            Quantity = Quantity - quantity;
+
+            if (Quantity < 0)
+            {
+                Quantity = 0;
+            }
+        }
+
+        public ItemFood Copy()
+        {
+            return new ItemFood(Name, Quantity);
+        }
+        
     }
 }

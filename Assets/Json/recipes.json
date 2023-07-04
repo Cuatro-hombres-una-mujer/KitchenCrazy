@@ -5,11 +5,26 @@
       "quantity": 1
     },
     "Items": [
-      "Tomate Picado",
-      "Palta Molida",
-      "Vienesa Cocida",
-      "Pan de Completo",
-      "Mayonesa"
+      {
+        "name": "Tomate",
+        "quantity": 1
+      },
+      {
+        "name": "Palta",
+        "quantity": 1
+      },
+      {
+        "name": "Vienesa Cocinada",
+        "quantity": 1
+      },
+      {
+        "name": "Pan de Completo",
+        "quantity": 1
+      },
+      {
+        "name": "Mayonesa",
+        "quantity": 1
+      }
     ]
   },
   {
@@ -18,12 +33,30 @@
       "quantity": 1
     },
     "Items": [
-      "Tomate Picado",
-      "Queso",
-      "Carne Hamburguesa",
-      "Pan Grande",
-      "Lechuga picada",
-      "Mayonesa"
+      {
+        "name": "Tomate",
+        "quantity": 1
+      },
+      {
+        "name": "Queso",
+        "quantity": 1
+      },
+      {
+        "name": "Hamburguesa Cocinada",
+        "quantity": 1
+      },
+      {
+        "name": "Pan Grande",
+        "quantity": 1
+      },
+      {
+        "name": "Lechuga",
+        "quantity": 1
+      },
+      {
+        "name": "Mayonesa",
+        "quantity": 1
+      }
     ]
   },
   {
@@ -32,11 +65,26 @@
       "quantity": 1
     },
     "Items": [
-      "Tomate Picado",
-      "Palta Molida",
-      "Carne Churrasco",
-      "Pan Grande",
-      "Mayonesa"
+      {
+        "name": "Tomate",
+        "quantity": 1
+      },
+      {
+        "name": "Palta",
+        "quantity": 1
+      },
+      {
+        "name": "Carne Churrasco Cocinada",
+        "quantity": 1
+      },
+      {
+        "name": "Pan Grande",
+        "quantity": 1
+      },
+      {
+        "name": "Mayonesa",
+        "quantity": 1
+      }
     ]
   },
   {
@@ -45,33 +93,46 @@
       "quantity": 1
     },
     "Items": [
-      "Queso",
-      "Carne Picada cocinada",
-      "Vienesa Cocida",
-      "Mayonesa",
-      "pollo cocinado",
-      "Papa Cocinada"
+      {
+        "name": "Carne Picada cocinada",
+        "quantity": "1"
+      },
+      {
+        "name": "Vienesa Cocida",
+        "quantity": 1
+      },
+      {
+        "name": "Mayonesa",
+        "quantity": 1
+      },
+      {
+        "name": "Pollo Cocinado",
+        "quantity": 1
+      },
+      {
+        "name": "Papas Fritas",
+        "quantity": 1
+      }
     ]
   },
   {
     "ItemFood": {
-      "name": "Salchi-Papa",
+      "name": "Salchi Papa",
       "quantity": 1
     },
     "Items": [
-      "Papa Cocinada",
-      "Vionesa cocinada",
-      "Mayonesa"
-    ]
-  },
-  {
-    "ItemFood": {
-      "name": "Papa-Frita",
-      "quantity": 1
-    },
-    "Items": [
-      "Papa Cocinada",
-      "Mayonesa"
+      {
+        "name": "Papas Fritas",
+        "quantity": 1
+      },
+      {
+        "name": "Vianesa Cocinada",
+        "quantity": 1
+      },
+      {
+        "name": "Mayonesa",
+        "quantity": 1
+      }
     ]
   },
   {
@@ -80,10 +141,18 @@
       "quantity": 1
     },
     "Items": [
-      "Queso",
-      "Carne Churrasco",
-      "Mayonesa",
-      "Pan Grande"
+      {
+        "name": "Queso",
+        "quantity": 1
+      },
+      {
+        "name": "Carne Churrasco Cocinada",
+        "quantity": 1
+      },
+      {
+        "name": "Pan Grande",
+        "quantity": 1
+      }
     ]
   },
   {
@@ -92,10 +161,22 @@
       "quantity": 1
     },
     "Items": [
-      "Queso",
-      "Carne Churrasco",
-      "Mayonesa",
-      "Pan de Completo"
+      {
+        "name": "Queso",
+        "quantity": 1
+      },
+      {
+        "name": "Carne Churrasco Cocinada",
+        "quantity": 1
+      },
+      {
+        "name": "Mayonesa",
+        "quantity": 1
+      },
+      {
+        "name": "Pan de Completo",
+        "quantity": 1
+      }
     ]
   }
 ]

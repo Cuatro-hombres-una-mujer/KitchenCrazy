@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace Helper
 {
@@ -18,15 +19,21 @@ namespace Helper
 
         public List<T> Search(int page)
         {
-            int result = (page - 1) * _slots;
-
-            if (result > _entities.Count)
+            var result = (page - 1) * _slots;
+            
+            if (result > _entities.Count || _entities.Count == 0)
             {
                 return new List<T>();
             }
+            
+            var quantityMax = result + _slots;
 
-            int limit = Math.Min(result + _slots, _entities.Count);
-            return _entities.GetRange(result, limit);
+            if (quantityMax >= _entities.Count)
+            {
+                return _entities.GetRange(result, _entities.Count - result);
+            }
+            
+            return _entities.GetRange(result, _slots);
         }
 
         public bool Exists(int page)

@@ -10,20 +10,10 @@
     "RequestedForClient": false
   },
   {
-    "Name": "Palta Molida",
-    "Quantity": 1,
-    "RequestedForClient": false
-  },
-  {
     "Name": "Tomate",
     "Quantity": 1,
     "RequestedForClient": false
-  },
-  {
-    "Name": "Tomate Picado",
-    "Quantity": 1,
-    "RequestedForClient": false
-  },
+  }, 
   {
     "Name": "Pan de Completo",
     "Quantity": 1,
@@ -50,42 +40,32 @@
     "RequestedForClient": false
   },
   {
-    "Name": "Huevo Crudo",
+    "Name": "Huevo Frito",
     "Quantity": 1,
     "RequestedForClient": false
   },
   {
-    "Name": "Papa Cruda",
+    "Name": "Papa",
     "Quantity": 1,
     "RequestedForClient": false
-  },
-  {
-    "Name": "Papa picada",
-    "Quantity": 1,
-    "RequestedForClient": false
-  },
-  {
-    "Name": "Papa cocinada",
-    "Quantity": 1,
-    "RequestedForClient": false
-  },
+  }, 
   {
     "Name": "Lechuga",
     "Quantity": 1,
     "RequestedForClient": false
   },
   {
-    "Name": "Lechuga Picada",
+    "Name": "Azucar",
     "Quantity": 1,
     "RequestedForClient": false
   },
   {
-    "Name": "Pollo Crudo",
+    "Name": "Choclo",
     "Quantity": 1,
     "RequestedForClient": false
   },
   {
-    "Name": "Pollo Picado",
+    "Name": "Pollo",
     "Quantity": 1,
     "RequestedForClient": false
   },
@@ -98,29 +78,14 @@
     "Name": "Cebolla",
     "Quantity": 1,
     "RequestedForClient": false
-  },
+  },  
   {
-    "Name": "Cebolla Picada",
+    "Name": "Carne",
     "Quantity": 1,
     "RequestedForClient": false
   },
   {
-    "Name": "Carne Cruda",
-    "Quantity": 1,
-    "RequestedForClient": false
-  },
-  {
-    "Name": "Carne picada Crudo",
-    "Quantity": 1,
-    "RequestedForClient": false
-  },
-  {
-    "Name": "Carne Picada cocinada",
-    "Quantity": 1,
-    "RequestedForClient": false
-  },
-  {
-    "Name": "Carne Churrasco Crudo",
+    "Name": "Carne Cocinada",
     "Quantity": 1,
     "RequestedForClient": false
   },
@@ -130,7 +95,17 @@
     "RequestedForClient": false
   },
   {
-    "Name": "Carne Hamburguesa",
+    "Name": "Carne Churrasco Cocinada",
+    "Quantity": 1,
+    "RequestedForClient": false
+  },
+  {
+    "Name": "Hamburguesa",
+    "Quantity": 1,
+    "RequestedForClient": false
+  },
+  {
+    "Name": "Hamburguesa Cocinada",
     "Quantity": 1,
     "RequestedForClient": false
   },
@@ -140,7 +115,7 @@
     "RequestedForClient": false
   },
   {
-    "Name": "Bebida",
+    "Name": "Kitchen-Cola",
     "Quantity": 1,
     "RequestedForClient": true
   },
@@ -155,7 +130,7 @@
     "RequestedForClient": true
   },
   {
-    "Name": "Salchi-Papa",
+    "Name": "Salchi Papa",
     "Quantity": 1,
     "RequestedForClient": true
   },

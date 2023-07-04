@@ -20,5 +20,5 @@ public class HUD : MonoBehaviour
     public void StrikeActive(int index) {
         strikes[index].SetActive(true);
     }
-    
+
 }

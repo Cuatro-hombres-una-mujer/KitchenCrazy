@@ -11,16 +11,14 @@ namespace DefaultNamespace.Gui
         private const int Slots = 3;
         private Pagination<Recipe> _pagination;
         private int _page;
-        private RecipeGui _recipeGui;
-        private readonly List<Recipe> _recipes;
+        private readonly RecipeGui _recipeGui;
 
         public RecipeGuiHandler(List<Recipe> recipes, RecipeGui recipeGui)
         {
-            _recipes = recipes;
             _page = 1;
             _recipeGui = recipeGui;
 
-            _pagination = new Pagination<Recipe>(_recipes, Slots);
+            _pagination = new Pagination<Recipe>(recipes, Slots);
         }
 
         public RecipeGui GetRecipeGui()
@@ -57,32 +55,49 @@ namespace DefaultNamespace.Gui
 
     public class RecipeGui
     {
+
+        private TextMeshProUGUI _infoText;
         private int _arrowPosition;
         private readonly List<ComponentRecipeGui> _componentRecipeGuis;
+        private List<Recipe> _recipes;
 
         private readonly GameObject _nextButton;
         private readonly GameObject _previousButton;
 
-        public RecipeGui(GameObject nextButton, GameObject previousButton)
+        public RecipeGui(GameObject nextButton, GameObject previousButton, TextMeshProUGUI infoText)
         {
             _nextButton = nextButton;
             _previousButton = previousButton;
             
             _arrowPosition = 0;
             _componentRecipeGuis = new List<ComponentRecipeGui>();
+            _infoText = infoText;
         }
 
         public void AddComponentRecipeGui(ComponentRecipeGui componentRecipeGui)
         {
             _componentRecipeGuis.Add(componentRecipeGui);
         }
+
+        private void BlankLines()
+        {
+            foreach (var component in _componentRecipeGuis)
+            {
+                component.EmptyLine();
+            }
+        }
         
         public void Refresh(List<Recipe> recipes, bool hasNext, bool hasPrevious)
         {
+            
+            BlankLines();
+
             _nextButton.SetActive(hasNext);
             _previousButton.SetActive(hasPrevious);
 
             _arrowPosition = 0;
+            
+            Debug.Log("Recipes: " + recipes.Count);
 
             for (var i = 0; i < recipes.Count; i++)
             {
@@ -96,6 +111,7 @@ namespace DefaultNamespace.Gui
             }
 
             _componentRecipeGuis[0].Visible();
+            _recipes = recipes;
         }
 
         public void Next()
@@ -113,8 +129,14 @@ namespace DefaultNamespace.Gui
             }
 
             GetComponentInArrow().Visible();
+            ShowIngredients();
         }
 
+        public Recipe GetViewingRecipe()
+        {
+            return _recipes[_arrowPosition];
+        }
+        
         public void Left()
         {
             GetComponentInArrow().Invisible();
@@ -129,8 +151,16 @@ namespace DefaultNamespace.Gui
             }
 
             GetComponentInArrow().Visible();
+            ShowIngredients();
         }
 
+        private void ShowIngredients()
+        {
+            var recipe = _recipes[_arrowPosition];
+
+            _infoText.text = ItemHelper.GenerateListItems(recipe.Items);
+        }
+        
         public ComponentRecipeGui GetComponentInArrow()
         {
             return _componentRecipeGuis[_arrowPosition];
@@ -165,5 +195,11 @@ namespace DefaultNamespace.Gui
         {
             Arrow.SetActive(false);
         }
+
+        public void EmptyLine()
+        {
+            _text.text = "";
+        }
+        
     }
 }

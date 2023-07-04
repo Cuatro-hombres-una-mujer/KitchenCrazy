@@ -20,11 +20,9 @@ namespace Food
 
             if (itemFood == null)
             {
-                Debug.Log("Es null");
                 return;
             }
-
-            Debug.Log("Registered R");
+            
             _recipes.Add(itemFood.Name, recipe);
         }
 
@@ -35,8 +33,6 @@ namespace Food
 
         public List<Recipe> GetRecipes()
         {
-
-            Debug.Log("A: " + _recipes.Count);
             var recipesInList = new List<Recipe>();
             
             foreach (var recipesValue in _recipes.Values)
