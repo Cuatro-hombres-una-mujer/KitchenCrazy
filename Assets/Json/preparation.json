@@ -53,5 +53,16 @@
       "quantity": 1
     },
     "seconds": 4
+  },
+  {
+    "Item": {
+      "name": "Papa",
+      "quantity": 1
+    },
+    "ItemCooked": {
+      "name": "Papas Fritas",
+      "quantity": 1
+    },
+    "seconds": 8
   }
 ]

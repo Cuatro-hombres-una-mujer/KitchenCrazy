@@ -76,10 +76,12 @@ namespace DefaultNamespace.Gui
 
             if (!_itemsCanCooked.Contains(name))
             {
+                Debug.Log("No puedes cocinar este item");
                 //Error warn it user!
                 return;
             }
 
+            Debug.Log("Cocinando este item food");
             var preparationStorage = PreparationStorageScript.GetPreparationStorage();
             var preparation = preparationStorage.Get(name);
 

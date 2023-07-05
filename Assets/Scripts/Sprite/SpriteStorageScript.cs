@@ -28,6 +28,7 @@ namespace DefaultNamespace.Sprite
         {
 
             yield return new WaitForSeconds(3F);
+            _storages = new Dictionary<SpriteType, SpriteStorage>();
             LoadSpriteStorageFood();
             LoadClientSprites();
 

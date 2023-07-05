@@ -26,10 +26,19 @@ namespace DefaultNamespace.Gui
 
         public void Open(Inventory inventory)
         {
+            BlankAllLines();
             _parts[0].Select();
             UpdateListItemsViewing(0, NumberElements);
         }
 
+        public void BlankAllLines()
+        {
+            foreach(var part in _parts)
+            {
+                part.HideLine();
+            }
+        }
+        
         private void UpdateListItemsViewing(int low, int height)
         {
             var items = _inventory.GetItems();
