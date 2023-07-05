@@ -15,9 +15,9 @@ namespace Entities
         public bool IsViewOrder { get; set; }
 
         public GameObject ClientObject { get; set; }
-
         public GameObject BubbleGameObject { get; set; }
         public GameObject BubbleTextGameObject { get; set; }
+        private SpriteRenderer _spriteRenderer;
         
         public Client(bool isWalking, string name, string realName,
             GameObject bubbleGameObject, GameObject bubbleTextGameObject,
@@ -29,8 +29,15 @@ namespace Entities
             NameGameObject = name;
             Name = realName;
             ClientObject = clientObject;
+
+            _spriteRenderer = clientObject.GetComponent<SpriteRenderer>();
         }
 
+        public void UpdateSprite(Sprite sprite)
+        {
+            _spriteRenderer.sprite = sprite;
+        }
+        
         public void SetOrders(List<Order> orders)
         {
             _orders = orders;

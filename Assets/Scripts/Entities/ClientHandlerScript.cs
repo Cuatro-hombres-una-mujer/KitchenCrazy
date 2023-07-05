@@ -67,7 +67,7 @@ public class ClientHandlerScript : MonoBehaviour
 
     private IEnumerator SpawnClientInStart()
     {
-        yield return new WaitForSeconds(2F);
+        yield return new WaitForSeconds(3F);
         _clientHandler.GenerateClients();
     }
 

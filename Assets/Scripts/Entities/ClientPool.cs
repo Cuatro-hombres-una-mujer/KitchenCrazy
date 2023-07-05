@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using DefaultNamespace.Sprite;
 using Food;
 using Food.Order;
 using Helper;
@@ -80,8 +81,13 @@ namespace Entities
 
             var realName = ListHelper.RandomValueList(_randomNames);
 
+            var storageSpriteClient = SpriteStorageScript.GetSpriteStorage(SpriteType.Client);
+            var sprite = storageSpriteClient.GetSprite(realName);
+            Debug.Log("SET SPRITE");
+            
             var client = GetClient(clientGameObject.name);
             client.Name = realName;
+            client.UpdateSprite(sprite);
 
             var orderGenerator = ItemFoodStorageScript.GetOrderGenerator();
             

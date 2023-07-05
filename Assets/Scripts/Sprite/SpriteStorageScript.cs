@@ -27,7 +27,7 @@ namespace DefaultNamespace.Sprite
         public IEnumerator StartWithDelay()
         {
 
-            yield return new WaitForSeconds(3F);
+            yield return new WaitForSeconds(2F);
             _storages = new Dictionary<SpriteType, SpriteStorage>();
             LoadSpriteStorageFood();
             LoadClientSprites();
@@ -45,6 +45,7 @@ namespace DefaultNamespace.Sprite
                 var sprite = spriteRendersClient[i];
                 var name = clientNames[i];
                 
+                Debug.Log("LOADING SPRITE NAME " + name);
                 spriteClientStorage.Register(name, sprite);
             }
 
