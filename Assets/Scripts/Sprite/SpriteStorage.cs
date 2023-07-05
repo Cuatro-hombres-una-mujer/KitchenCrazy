@@ -23,6 +23,20 @@ namespace DefaultNamespace.Sprite
             return _sprites[name];
         }
 
+        public void PrintValues()
+        {
+            
+            Debug.Log("KEYS: ");
+            
+            foreach (var spritesKey in _sprites.Keys)
+            {
+                Debug.Log(spritesKey);
+            }
+            
+            Debug.Log("----------");
+            
+        }
+        
     }
     
 }

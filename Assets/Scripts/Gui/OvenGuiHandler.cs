@@ -149,6 +149,9 @@ namespace DefaultNamespace.Gui
 
             var storageScript = SpriteStorageScript.GetSpriteStorage(SpriteType.Food);
 
+            storageScript.PrintValues();
+            
+            Debug.Log("Item Food Name >>> : " + _itemCooked.Name);
             _image.sprite = storageScript.GetSprite(_itemCooked.Name);
             
             

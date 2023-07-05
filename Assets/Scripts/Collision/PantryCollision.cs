@@ -7,6 +7,7 @@ namespace DefaultNamespace.Collision
     {
 
         private const string Tag = "Pantry";
+        private const string InventoryName = "Pantry_Inventory";
         [SerializeField] private GameObject canvasPantry;
 
         private void OnCollisionStay2D(Collision2D other)
@@ -16,7 +17,7 @@ namespace DefaultNamespace.Collision
             if (other.gameObject.CompareTag(Tag) && Input.GetKey(KeyCode.Space))
             {
                 canvasPantry.SetActive(true);
-                player.OpenInventory(tag);
+                player.OpenInventory(InventoryName);
             } 
             
         }
