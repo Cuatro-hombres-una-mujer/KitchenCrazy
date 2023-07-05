@@ -78,6 +78,11 @@ public class ClientScript : MonoBehaviour
 
         clientInventoryText.SetTitle(_client.Name);
         clientInventoryText.SetIdClient(gameObject.name);
+
+        if (!_client.IsViewOrder)
+        {
+            _client.ViewOrder();
+        }
         
         Debug.Log(_client.GetOrders().Count);
         for (var i = 0; i < _client.GetOrders().Count; i++)

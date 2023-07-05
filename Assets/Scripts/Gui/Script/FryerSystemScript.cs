@@ -43,7 +43,12 @@ namespace Gui.Script
         [SerializeField] private GameObject nextInventoryButton;
         [SerializeField] private GameObject previousInventoryButton;
 
-                private void Awake()
+        [Header("Image Fryer")] 
+        [SerializeField] private GameObject imageFryerOne;
+
+        [SerializeField] private GameObject imageFryerTwo;
+        
+        private void Awake()
         {
             StartCoroutine(StartWithDelay());
         }
@@ -57,8 +62,8 @@ namespace Gui.Script
             _fryerGuiHandler = new OvenGuiHandler(_player.Inventory, itemsCanCooked, nextInventoryButton
             ,previousInventoryButton);
             
-            _fryerGuiHandler.AddSlotOven(new SlotOven(firstButtonOvenText));
-            _fryerGuiHandler.AddSlotOven(new SlotOven(secondButtonOvenText));
+            _fryerGuiHandler.AddSlotOven(new SlotOven(firstButtonOvenText, imageFryerOne));
+            _fryerGuiHandler.AddSlotOven(new SlotOven(secondButtonOvenText, imageFryerTwo));
 
             var inventoryHandler = _fryerGuiHandler.GetInventoryGuiHandler();
 

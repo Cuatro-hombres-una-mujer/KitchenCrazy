@@ -44,9 +44,7 @@ public class ClientHandlerScript : MonoBehaviour
         
         _clientHandler = new ClientHandler(_clientPool, clientInventoryGameObject, locations,
             _clientInventoryText);
-        
-        Debug.Log("Creating Client Pool");
-        
+
         StartCoroutine(SpawnClientInStart());
     }
 
@@ -76,7 +74,6 @@ public class ClientHandlerScript : MonoBehaviour
     public void OnClickOrder(int position)
     {
         var clientName = _clientHandler.GetViewingClientId();
-        Debug.Log("Client Name Inventory: " + clientName);
         _clientHandler.FinishPartOrder(_player, position, clientName);   
     }
     public static ClientPool GetMainClientPool()

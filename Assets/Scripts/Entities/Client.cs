@@ -59,10 +59,11 @@ namespace Entities
         {
             IsViewOrder = true;
             
+            Debug.Log("Viendo la orden");
             BubbleGameObject.SetActive(false);
             BubbleTextGameObject.SetActive(false);
         }
-        
+
         public void UnViewOrder()
         {
             IsViewOrder = true;

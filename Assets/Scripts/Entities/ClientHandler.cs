@@ -42,6 +42,8 @@ namespace Entities
             player.CloseInventory();
             _clientPool.UnSpawn(client);
             
+            client.UnViewOrder();
+            
             foreach (var orderPartInventoryText in _clientInventoryText.GetParts())
             {
                 orderPartInventoryText.UnMade();

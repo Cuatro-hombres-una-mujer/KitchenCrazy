@@ -7,7 +7,7 @@ namespace Food
         public string Name { get; set;  }
         public int Quantity { get; set; }
         
-        public SpriteRenderer SpriteRenderer { get; set; }
+        public UnityEngine.Sprite Sprite { get; set; }
         
         public bool RequestedForClient { get; set; }
 

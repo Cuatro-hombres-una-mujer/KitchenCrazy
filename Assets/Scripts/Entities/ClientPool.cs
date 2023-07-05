@@ -75,11 +75,6 @@ namespace Entities
             clientGameObject.SetActive(true);
             var transform = clientGameObject.transform;
 
-            Debug.Log("----------------------");
-            Debug.Log("x: " + location.x);
-            Debug.Log("y: " + location.y);
-            Debug.Log("----------------------");
-
             var newPosition = new Vector3(location.x, location.y, transform.position.z);
             transform.position = newPosition;
 

@@ -1,8 +1,10 @@
 using System.Collections.Generic;
+using DefaultNamespace.Sprite;
 using Entities.Player;
 using Food;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace DefaultNamespace.Gui
 {
@@ -119,13 +121,17 @@ namespace DefaultNamespace.Gui
         private Preparation _preparation;
         private ItemFood _itemCooked;
         private TextMeshProUGUI _buttonText;
+        private Image _image;
 
-        public SlotOven(TextMeshProUGUI buttonText)
+        public SlotOven(TextMeshProUGUI buttonText, GameObject spriteImage)
         {
             _seconds = 0;
             _cookState = CookState.PreCooking;
             _buttonText = buttonText;
-
+            
+            _image = spriteImage.GetComponent<Image>();
+            
+            
             _buttonText.text = "Esperando alimento!";
         }
 
@@ -141,6 +147,11 @@ namespace DefaultNamespace.Gui
             _itemCooked = _preparation.Item;
             _seconds = preparation.Seconds;
 
+            var storageScript = SpriteStorageScript.GetSpriteStorage(SpriteType.Food);
+
+            _image.sprite = storageScript.GetSprite(_itemCooked.Name);
+            
+            
             _buttonText.text = "Cocinando...";
         }
 
@@ -153,7 +164,8 @@ namespace DefaultNamespace.Gui
 
             var inventory = player.Inventory;
             var itemPrepared = _preparation.ItemCooked;
-
+            _image.sprite = null;
+            
             inventory.AddItem(itemPrepared);
             _seconds = 0;
             _buttonText.text = "Esperando alimento!";
@@ -172,6 +184,11 @@ namespace DefaultNamespace.Gui
         {
             _itemCooked = _preparation.ItemCooked;
             _cookState = CookState.Ready;
+            _image.sprite = _itemCooked.Sprite;
+            
+            var storageScript = SpriteStorageScript.GetSpriteStorage(SpriteType.Food);
+            _image.sprite = storageScript.GetSprite(_itemCooked.Name);
+            
             _buttonText.text = "Cocinado!";
         }
 

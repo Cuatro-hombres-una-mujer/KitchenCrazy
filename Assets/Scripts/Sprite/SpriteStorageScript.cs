@@ -13,10 +13,10 @@ namespace DefaultNamespace.Sprite
         private static IDictionary<SpriteType, SpriteStorage> _storages;
         private ItemFoodStorage _itemFoodStorage;
         
-        [SerializeField] private List<SpriteRenderer> spriteRenderersFood;
+        [SerializeField] private List<UnityEngine.Sprite> spriteRenderersFood;
         [SerializeField] private List<string> namesFood;
 
-        [SerializeField] private List<SpriteRenderer> spriteRendersClient;
+        [SerializeField] private List<UnityEngine.Sprite> spriteRendersClient;
         [SerializeField] private List<string> clientNames;
 
         public void Start()
@@ -67,14 +67,15 @@ namespace DefaultNamespace.Sprite
                 var sprite = spriteRenderersFood[i];
                 var name = namesFood[i];
                 
+                Debug.Log("[A] Registered: " + name);
                 spriteStorage.Register(name, sprite);
                 
 
                 if (_itemFoodStorage.Contains(name))
                 {
-                    Debug.Log("Registered as item");
+                    Debug.Log("Registered as item: " + name);
                     var item = _itemFoodStorage.Get(name);
-                    item.SpriteRenderer = sprite;
+                    item.Sprite = sprite;
                 }
                 
             }

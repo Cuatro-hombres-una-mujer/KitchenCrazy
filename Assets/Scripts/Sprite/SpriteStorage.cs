@@ -6,19 +6,19 @@ namespace DefaultNamespace.Sprite
     public class SpriteStorage
     {
 
-        private readonly IDictionary<string, SpriteRenderer> _sprites;
+        private readonly IDictionary<string, UnityEngine.Sprite> _sprites;
 
         public SpriteStorage()
         {
-            _sprites = new Dictionary<string, SpriteRenderer>();
+            _sprites = new Dictionary<string, UnityEngine.Sprite>();
         }
 
-        public void Register(string name, SpriteRenderer spriteRenderer)
+        public void Register(string name, UnityEngine.Sprite sprite)
         {
-            _sprites[name] = spriteRenderer;
+            _sprites[name] = sprite;
         }
 
-        public SpriteRenderer GetSprite(string name)
+        public UnityEngine.Sprite GetSprite(string name)
         {
             return _sprites[name];
         }

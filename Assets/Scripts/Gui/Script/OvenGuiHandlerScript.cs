@@ -45,6 +45,11 @@ namespace Gui.Script
         [Header("Button Inventory")]
         [SerializeField] private GameObject nextInventoryButton;
         [SerializeField] private GameObject previousInventoryButton;
+
+        [Header("Image Kitchen")] 
+        [SerializeField] private GameObject firstKitchenImage;
+        [SerializeField] private GameObject secondKitchenImage;
+        [SerializeField] private GameObject thirdKitchenImage;
         
         private void Awake()
         {
@@ -60,9 +65,9 @@ namespace Gui.Script
             _ovenGuiHandler = new OvenGuiHandler(_player.Inventory, itemsCanCooked, nextInventoryButton
             ,previousInventoryButton);
             
-            _ovenGuiHandler.AddSlotOven(new SlotOven(firstButtonOvenText));
-            _ovenGuiHandler.AddSlotOven(new SlotOven(secondButtonOvenText));
-            _ovenGuiHandler.AddSlotOven(new SlotOven(thirdButtonOvenText));
+            _ovenGuiHandler.AddSlotOven(new SlotOven(firstButtonOvenText, firstKitchenImage));
+            _ovenGuiHandler.AddSlotOven(new SlotOven(secondButtonOvenText, secondKitchenImage));
+            _ovenGuiHandler.AddSlotOven(new SlotOven(thirdButtonOvenText, thirdKitchenImage));
 
             var inventoryHandler = _ovenGuiHandler.GetInventoryGuiHandler();
 
