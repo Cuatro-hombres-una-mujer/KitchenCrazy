@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using DefaultNamespace.Text;
 using Helper;
@@ -40,7 +41,12 @@ namespace Entities
             _clientHandlerInventory.SetActive(false);
             player.CloseInventory();
             _clientPool.UnSpawn(client);
-            GenerateClients();
+            
+            foreach (var orderPartInventoryText in _clientInventoryText.GetParts())
+            {
+                orderPartInventoryText.UnMade();
+            }
+            
         }
 
         public void FinishPartOrder(Player.Player player, int position, string clientName)
@@ -58,6 +64,12 @@ namespace Entities
                 return;
             }
 
+            if (order.IsReady)
+            {
+                Debug.Log("The order is finished");
+                return;
+            }
+
             Debug.Log("Yes it contains the items");
             order.Ready();
             
@@ -65,7 +77,6 @@ namespace Entities
             inventory.DeleteItem(itemOrdered);
             var part = _clientInventoryText.GetPart(position);
             
-            Debug.Log("Maded!");
             part.Made();
 
             FinishOrder(player, clientName);
@@ -83,6 +94,17 @@ namespace Entities
             
         }
 
+        public IEnumerator GenerateClientsWithDelay(float seconds)
+        {
+            yield return new WaitForSeconds(seconds);
+            
+            var quantityClient = Random.Range(1, QuantityMaxClients);
+            for (var i = 0; i < quantityClient; i++)
+            {
+                _clientPool.Spawn(GetFreeAndRandomLocation());
+            }
+        }
+        
         public string GetViewingClientId()
         {
             return _clientInventoryText.GetClientId();

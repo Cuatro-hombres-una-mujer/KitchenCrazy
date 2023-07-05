@@ -12,11 +12,19 @@ namespace Entities
         public string NameGameObject { get; }
         public string Name { get; set; }
 
+        public bool IsViewOrder { get; set; }
+
         public GameObject ClientObject { get; set; }
 
+        public GameObject BubbleGameObject { get; set; }
+        public GameObject BubbleTextGameObject { get; set; }
+        
         public Client(bool isWalking, string name, string realName,
-             GameObject clientObject)
+            GameObject bubbleGameObject, GameObject bubbleTextGameObject,
+            GameObject clientObject)
         {
+            BubbleGameObject = bubbleGameObject;
+            BubbleTextGameObject = bubbleTextGameObject;
             _isWalking = isWalking;
             NameGameObject = name;
             Name = realName;
@@ -27,7 +35,7 @@ namespace Entities
         {
             _orders = orders;
         }
-        
+
         public void StartWalk()
         {
             _isWalking = true;
@@ -43,6 +51,26 @@ namespace Entities
             return _isWalking;
         }
 
+        public bool SawOrder()
+        {
+            return IsViewOrder;
+        }
+        public void ViewOrder()
+        {
+            IsViewOrder = true;
+            
+            BubbleGameObject.SetActive(false);
+            BubbleTextGameObject.SetActive(false);
+        }
+        
+        public void UnViewOrder()
+        {
+            IsViewOrder = true;
+            
+            BubbleGameObject.SetActive(true);
+            BubbleTextGameObject.SetActive(true);
+        }
+        
         public List<Order> GetOrders()
         {
             return _orders;
@@ -60,6 +88,5 @@ namespace Entities
 
             return true;
         }
-        
     }
 }

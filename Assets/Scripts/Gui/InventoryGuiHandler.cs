@@ -60,12 +60,14 @@ namespace DefaultNamespace.Gui
         public void NextPage()
         {
             _page++;
+            //_positionSelected = 0;
             Refresh();
         }
 
         public void PreviousPage()
         {
             _page--;
+            //_positionSelected = 0;
             Refresh();
         }
 

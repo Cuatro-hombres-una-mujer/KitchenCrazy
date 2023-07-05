@@ -91,8 +91,10 @@ public class ClientScript : MonoBehaviour
             part.UpdateText(orderFormat);
             part.GetButton().SetActive(true);
 
+            Debug.Log("Position: " + i);
             if (order.IsReady)
             {
+                Debug.Log("Part: " + i +  " Is ready");
                 part.Made();
             }
 

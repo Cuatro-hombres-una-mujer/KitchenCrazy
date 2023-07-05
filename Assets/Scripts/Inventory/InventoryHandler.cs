@@ -42,14 +42,16 @@ public class Inventory
         }
 
         var itemSearched = _items[name];
-        
-        if (itemSearched.IsUnique())
+        itemSearched.Remove(item.Quantity);
+
+        if (itemSearched.Quantity == 0)
         {
             _items.Remove(name);
-            return;
         }
         
-        itemSearched.Remove(item.Quantity);
+        
+        
+        
     }
 
     public bool HasItem(ItemFood item)

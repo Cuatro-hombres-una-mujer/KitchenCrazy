@@ -28,16 +28,22 @@ namespace Entities
         [SerializeField] private GameObject partThirdImage;
         [SerializeField] private GameObject partFourImage;
 
+        [Header("Check")] 
+        [SerializeField] private GameObject partOneCheck;
+        [SerializeField] private GameObject partTwoCheck;
+        [SerializeField] private GameObject partThirdCheck;
+        [SerializeField] private GameObject partFourCheck;
+        
         private static ClientInventoryText _clientInventoryText;
         
         private void Awake()
         {
             _clientInventoryText = new ClientInventoryText(title);
             
-            _clientInventoryText.AddPart(new OrderPartInventoryText(partOneFood, partOneButton, partOneImage, false));
-            _clientInventoryText.AddPart(new OrderPartInventoryText(partTwoFood, partTwoButton, partTwoImage, false));
-            _clientInventoryText.AddPart(new OrderPartInventoryText(partThirdFood,partThirdButton, partThirdImage, false));
-            _clientInventoryText.AddPart(new OrderPartInventoryText(partFourFood, partFourButton, partFourImage,false));
+            _clientInventoryText.AddPart(new OrderPartInventoryText(partOneFood, partOneButton, partOneImage, partOneCheck, false));
+            _clientInventoryText.AddPart(new OrderPartInventoryText(partTwoFood, partTwoButton, partTwoImage, partTwoCheck, false));
+            _clientInventoryText.AddPart(new OrderPartInventoryText(partThirdFood,partThirdButton, partThirdImage, partThirdCheck, false));
+            _clientInventoryText.AddPart(new OrderPartInventoryText(partFourFood, partFourButton, partFourImage, partFourCheck, false));
             
         }
 

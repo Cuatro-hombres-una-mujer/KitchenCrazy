@@ -43,13 +43,17 @@ namespace Entities
                 var gameObject = GameObject.Instantiate(_clientPrefab,
                     _vectorInitialPosition, Quaternion.identity);
 
+                var gameObjectBubble = gameObject.transform.GetChild(0).gameObject;
+                var gameObjectTextBubble = gameObject.transform.GetChild(1).gameObject;
+                
                 gameObject.SetActive(false);
 
                 var idObject = IdentifierUtility.GenerateRandoId();
                 gameObject.name = idObject;
                 
                 var client = new Client(false,
-                    gameObject.name, null, gameObject);
+                    gameObject.name, null, gameObjectBubble, 
+                    gameObjectTextBubble,gameObject);
 
                 Debug.Log(">> GENERATING NEW ORDER FOR CLIENT");
 
