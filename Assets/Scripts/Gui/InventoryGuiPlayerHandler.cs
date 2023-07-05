@@ -46,7 +46,7 @@ namespace DefaultNamespace.Gui
             Debug.Log("low: " + _low);
             Debug.Log("Items: " + items.Count);
             
-            _itemsViewing = items.GetRange(low, NumberElements);
+             _itemsViewing = items.GetRange(low, NumberElements);
         }
 
         public void Close()
@@ -68,6 +68,11 @@ namespace DefaultNamespace.Gui
             {
 
                 var inventory = _inventory.GetItems();
+
+                var new_height = _height + 1;
+                Debug.Log("Height: " + new_height);
+                Debug.Log("Count: " + inventory.Count);
+                
                 if (_height + 1 > inventory.Count)
                 {
                     return;
@@ -78,7 +83,7 @@ namespace DefaultNamespace.Gui
                 Refresh();
                 return;
             }
-            
+
             _parts[_index].Deselect();
             _parts[_index + 1].Select();
             _index++;

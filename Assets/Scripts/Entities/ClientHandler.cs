@@ -29,12 +29,14 @@ namespace Entities
 
             if (!client.AllOrdersAreReady())
             {
+                Debug.Log("ALL ORDERS IS NOT READY");
                 //Warn it all orders are not ready!
                 return;
             }
             
             //Give money
             
+            Debug.Log("ALL ORDERS IS READY");
             _clientHandlerInventory.SetActive(false);
             player.CloseInventory();
             _clientPool.UnSpawn(client);

@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using DefaultNamespace.Gui;
@@ -8,9 +7,8 @@ using UnityEngine;
 
 namespace Gui.Script
 {
-    public class FryerGuiHandler : MonoBehaviour
+    public class FryerSystemScript : MonoBehaviour
     {
-
         private int _nextUpdate = 1;
         private const string InventoryName = "Fryer_Inventory";
         private static OvenGuiHandler _fryerGuiHandler;
@@ -44,8 +42,8 @@ namespace Gui.Script
         [Header("Button Inventory")]
         [SerializeField] private GameObject nextInventoryButton;
         [SerializeField] private GameObject previousInventoryButton;
-        
-        private void Awake()
+
+                private void Awake()
         {
             StartCoroutine(StartWithDelay());
         }
@@ -164,6 +162,7 @@ namespace Gui.Script
             }
             
         }
+        
         
     }
 }

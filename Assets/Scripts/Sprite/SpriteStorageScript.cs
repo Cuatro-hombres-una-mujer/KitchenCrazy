@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Entities;
 using Food;
 using UnityEngine;
 
@@ -9,12 +10,14 @@ namespace DefaultNamespace.Sprite
     public class SpriteStorageScript : MonoBehaviour
     {
 
-        private SpriteStorage _spriteStorage;
+        private static IDictionary<SpriteType, SpriteStorage> _storages;
         private ItemFoodStorage _itemFoodStorage;
         
-        [SerializeField] private List<SpriteRenderer> _spriteRenderers;
-        [SerializeField] private List<string> _names;
+        [SerializeField] private List<SpriteRenderer> spriteRenderersFood;
+        [SerializeField] private List<string> namesFood;
 
+        [SerializeField] private List<SpriteRenderer> spriteRendersClient;
+        [SerializeField] private List<string> clientNames;
 
         public void Start()
         {
@@ -25,23 +28,46 @@ namespace DefaultNamespace.Sprite
         {
 
             yield return new WaitForSeconds(3F);
+            LoadSpriteStorageFood();
+            LoadClientSprites();
 
-            _spriteStorage = new SpriteStorage();
+        }
+
+        public void LoadClientSprites()
+        {
+
+            var spriteClientStorage = new SpriteStorage();
+
+            for (var i = 0; i < spriteRendersClient.Count; i++)
+            {
+
+                var sprite = spriteRendersClient[i];
+                var name = clientNames[i];
+                
+                spriteClientStorage.Register(name, sprite);
+            }
+
+            _storages[SpriteType.Client] = spriteClientStorage;
+        }
+        
+        public void LoadSpriteStorageFood()
+        {
+            var spriteStorage = new SpriteStorage();
             _itemFoodStorage = ItemFoodStorageScript.GetItemFoodStorage();
 
-            if (_spriteRenderers.Count != _names.Count)
+            if (spriteRenderersFood.Count != namesFood.Count)
             {
                 throw new Exception("The list sprites renders and name should be same count");
             }
 
-            for (var i = 0; i < _spriteRenderers.Count; i++)
+            for (var i = 0; i < spriteRenderersFood.Count; i++)
             {
 
-                var sprite = _spriteRenderers[i];
-                var name = _names[i];
+                var sprite = spriteRenderersFood[i];
+                var name = namesFood[i];
                 
-                _spriteStorage.Register(name, sprite);
-                Debug.Log("Registered Sprite with name: " + name);
+                spriteStorage.Register(name, sprite);
+                
 
                 if (_itemFoodStorage.Contains(name))
                 {
@@ -51,12 +77,20 @@ namespace DefaultNamespace.Sprite
                 }
                 
             }
-            
+
+            _storages[SpriteType.Food] = spriteStorage;
+        }
+
+        public static SpriteStorage GetSpriteStorage(SpriteType type)
+        {
+            return _storages[type];
         }
         
-        
-        
     }
-    
+
+    public enum SpriteType
+    {
+        Food, Client
+    }
     
 }
