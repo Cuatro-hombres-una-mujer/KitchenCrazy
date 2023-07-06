@@ -3366,7 +3366,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 9c9bb7906bb652c4ba341f41566d6d8e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 056850410f0ebe9419d23ff85011f4b4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -17264,7 +17264,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 993faf33bfe501641813bf7c836dec5e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 99f4f006b190a554b95f300cdd205294, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -17618,6 +17618,7 @@ MonoBehaviour:
   ovenInventoryGameObject: {fileID: 1988102420}
   itemsCanCooked:
   - Papa
+  - Huevo
   firstButtonOvenText: {fileID: 496744917}
   secondButtonOvenText: {fileID: 1432101783}
   contentTextOne: {fileID: 1303628474}
@@ -51880,6 +51881,7 @@ MonoBehaviour:
   - Pollo
   - Hamburguesa
   - Huevo
+  - Carne
   firstButtonOvenText: {fileID: 2147354535}
   secondButtonOvenText: {fileID: 292421358}
   thirdButtonOvenText: {fileID: 310412204}
@@ -74473,7 +74475,7 @@ MonoBehaviour:
   - Palta
   - Papa
   - Vienesa Cocinada
-  - 'Vienesa '
+  - Vienesa
   - Pan de Completo
   - Huevo
   - Pollo
@@ -74491,10 +74493,12 @@ MonoBehaviour:
   - {fileID: 21300000, guid: d526226d6f830ab43931454c06b083b1, type: 3}
   - {fileID: 21300000, guid: c3cabf7ee1d3ff249b0d0916544a028a, type: 3}
   - {fileID: 21300000, guid: c68f6c7b17f845c41b59ad8b57dd82cb, type: 3}
+  - {fileID: 21300000, guid: 94631b169702b604093497b0085ad8ad, type: 3}
   clientNames:
   - Pablo
   - Fernando
   - Tomas
+  - Catalina
 --- !u!1 &1846422266
 GameObject:
   m_ObjectHideFlags: 0
