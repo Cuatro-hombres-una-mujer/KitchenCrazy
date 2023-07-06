@@ -5,6 +5,7 @@ using DefaultNamespace.Text;
 using Entities;
 using Entities.Player;
 using Helper;
+using TMPro;
 using UnityEngine;
 
 public class ClientHandlerScript : MonoBehaviour
@@ -26,6 +27,7 @@ public class ClientHandlerScript : MonoBehaviour
     [SerializeField] private float x;
     [SerializeField] private float y;
     [SerializeField] private GameObject clientInventoryGameObject;
+    [SerializeField] private TextMeshProUGUI ordersCompletedText;
 
     
     
@@ -43,7 +45,7 @@ public class ClientHandlerScript : MonoBehaviour
         _clientInventoryText = ClientInventoryScript.GetClientInventoryText();
         
         _clientHandler = new ClientHandler(_clientPool, clientInventoryGameObject, locations,
-            _clientInventoryText);
+            _clientInventoryText, ordersCompletedText);
 
         StartCoroutine(SpawnClientInStart());
     }

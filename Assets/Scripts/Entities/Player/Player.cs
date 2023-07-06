@@ -4,6 +4,9 @@ namespace Entities.Player
 {
     public class Player
     {
+
+        private int _ordersCompleted;
+        
         private int _coins;
         public Inventory Inventory { get; }
 
@@ -39,6 +42,16 @@ namespace Entities.Player
         public bool IsView(string name)
         {
             return _inventoryOpened == name;
+        }
+
+        public int GetOrderComplete()
+        {
+            return _ordersCompleted;
+        }
+        
+        public void AddOrderComplete()
+        {
+            _ordersCompleted++;
         }
         
         public int GetCoins()

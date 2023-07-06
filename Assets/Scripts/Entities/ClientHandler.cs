@@ -2,13 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using DefaultNamespace.Text;
 using Helper;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Entities
 {
     public class ClientHandler
     {
 
+        private TextMeshProUGUI _ordersCompleted;
         private const int QuantityMaxClients = 4;
         private readonly ClientPool _clientPool;
         private readonly List<LocationClient> _locations;
@@ -16,12 +19,14 @@ namespace Entities
         private readonly GameObject _clientHandlerInventory;
 
         public ClientHandler(ClientPool clientPool, GameObject clientHandlerInventory,
-            List<LocationClient> locations, ClientInventoryText clientInventoryText)
+            List<LocationClient> locations, ClientInventoryText clientInventoryText,
+            TextMeshProUGUI ordersCompleted)
         {
             _clientPool = clientPool;
             _clientHandlerInventory = clientHandlerInventory;
             _locations = locations;
             _clientInventoryText = clientInventoryText;
+            _ordersCompleted = ordersCompleted;
         }
 
         public void FinishOrder(Player.Player player, string clientName)
@@ -37,6 +42,10 @@ namespace Entities
             
             //Give money
             
+            player.AddOrderComplete();
+            _ordersCompleted.text = "Pedidos: " + player.GetOrderComplete() + "";
+            
+
             Debug.Log("ALL ORDERS IS READY");
             _clientHandlerInventory.SetActive(false);
             player.CloseInventory();
