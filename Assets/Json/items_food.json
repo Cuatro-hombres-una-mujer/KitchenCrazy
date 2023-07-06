@@ -148,5 +148,15 @@
     "Name": "As",
     "Quantity": 1,
     "RequestedForClient": true
+  },
+  {
+    "Name": "DvD Burger",
+    "Quantity": 1,
+    "RequestedForClient": true
+  },
+  {
+    "Name": "Pastel De Choclo",
+    "Quantity": 1,
+    "RequestedForClient": true
   }
 ]

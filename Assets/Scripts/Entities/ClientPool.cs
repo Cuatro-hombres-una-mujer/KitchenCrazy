@@ -83,8 +83,7 @@ namespace Entities
 
             var storageSpriteClient = SpriteStorageScript.GetSpriteStorage(SpriteType.Client);
             var sprite = storageSpriteClient.GetSprite(realName);
-            Debug.Log("SET SPRITE");
-            
+
             var client = GetClient(clientGameObject.name);
             client.Name = realName;
             client.UpdateSprite(sprite);

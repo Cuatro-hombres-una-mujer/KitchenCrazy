@@ -23,6 +23,7 @@ namespace Food.Order
                 
                 if (item.RequestedForClient)
                 {
+                    Debug.Log("Adding item for generator: " + item.Name);
                     _items.Add(item);
                 }
 
