@@ -64,5 +64,16 @@
       "quantity": 1
     },
     "seconds": 8
+  },
+  {
+    "Item": {
+      "name": "Carne",
+      "quantity": 1
+    },
+    "ItemCooked": {
+      "name": "Carne Cocinada",
+      "quantity": 1
+    },
+    "seconds": 10
   }
 ]
