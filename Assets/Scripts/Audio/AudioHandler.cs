@@ -15,7 +15,7 @@ namespace DefaultNamespace.Audio
 
     public enum SoundType
     {
-        
+        Freir, Error, OpenFreezer, SoldMake, CloseDespensa, AbrirDespensa, Correct
     }
     
 }

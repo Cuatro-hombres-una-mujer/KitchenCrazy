@@ -1,4 +1,5 @@
 using System;
+using DefaultNamespace.Audio;
 using UnityEngine;
 
 namespace DefaultNamespace.Collision
@@ -18,6 +19,9 @@ namespace DefaultNamespace.Collision
             {
                 canvasPantry.SetActive(true);
                 player.OpenInventory(InventoryName);
+
+                var audioHandler = AudioHandlerScript.GetAudioHandler();
+                audioHandler.PlaySound(SoundType.AbrirDespensa);
             } 
             
         }

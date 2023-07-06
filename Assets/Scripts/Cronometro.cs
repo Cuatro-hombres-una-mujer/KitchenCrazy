@@ -11,6 +11,8 @@ public class Cronometro : MonoBehaviour
     
     [SerializeField] TextMeshProUGUI text;
     [SerializeField] private float timeInSeconds;
+
+    private const string OrdersKey = "Orders";
     
    public void UpdateTimeText()
    {
@@ -34,7 +36,10 @@ public class Cronometro : MonoBehaviour
 
         if (timeInSeconds == 0)
         {
-            //Finished game
+
+            var player = PlayerMovement.GetPlayer();
+            PlayerPrefs.SetInt(OrdersKey, player.GetOrderComplete());
+            
             SceneManager.LoadScene(5);
         }
         

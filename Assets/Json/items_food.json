@@ -88,14 +88,9 @@
     "Name": "Carne Cocinada",
     "Quantity": 1,
     "RequestedForClient": false
-  },
+  }, 
   {
-    "Name": "Carne Churrasco",
-    "Quantity": 1,
-    "RequestedForClient": false
-  },
-  {
-    "Name": "Carne Churrasco Cocinada",
+    "Name": "Churrasco Cocinada",
     "Quantity": 1,
     "RequestedForClient": false
   },
@@ -125,7 +120,7 @@
     "RequestedForClient": true
   },
   {
-    "Name": "Churrasco Italiano",
+    "Name": "Churrasco",
     "Quantity": 1,
     "RequestedForClient": true
   },

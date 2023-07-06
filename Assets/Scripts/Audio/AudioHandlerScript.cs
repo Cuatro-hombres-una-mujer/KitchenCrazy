@@ -17,6 +17,7 @@ namespace DefaultNamespace.Audio
         private void Awake()
         {
             _audioHandler = new AudioHandlerImpl();
+            LoadSounds();
         }
 
         public void LoadSounds()
@@ -37,7 +38,7 @@ namespace DefaultNamespace.Audio
 
         }
         
-        public IAudioHandler GetAudioHandler()
+        public static IAudioHandler GetAudioHandler()
         {
             return _audioHandler;
         }

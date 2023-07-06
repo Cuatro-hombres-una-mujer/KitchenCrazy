@@ -38,7 +38,7 @@ namespace DefaultNamespace.Gui
             RefreshElements();
         }
 
-        public void  RefreshElements()
+        public void RefreshElements()
         {
             var items = _pagination.Search(_page);
             var hasNext = _pagination.Exists(_page + 1);
@@ -112,6 +112,8 @@ namespace DefaultNamespace.Gui
 
             _componentRecipeGuis[0].Visible();
             _recipes = recipes;
+            
+            ShowIngredients();
         }
 
         public void Next()
@@ -154,7 +156,7 @@ namespace DefaultNamespace.Gui
             ShowIngredients();
         }
 
-        private void ShowIngredients()
+        public void ShowIngredients()
         {
             var recipe = _recipes[_arrowPosition];
 

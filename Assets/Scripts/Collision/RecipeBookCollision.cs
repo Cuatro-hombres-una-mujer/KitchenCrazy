@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using DefaultNamespace.Gui;
 using Entities.Player;
 using UnityEngine;
 
@@ -31,6 +32,9 @@ namespace DefaultNamespace.Collision
                 recipeInventory.SetActive(true);
                 _player.OpenInventory(InventoryName);
                 Debug.Log("Open inventory " + InventoryName);
+                
+                PlayerRecipeGuiInteractScript.GetRecipeGuiHandler().
+                    GetRecipeGui().ShowIngredients();
             }   
             
         }

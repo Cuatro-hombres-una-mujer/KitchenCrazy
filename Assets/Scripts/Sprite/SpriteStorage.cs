@@ -18,9 +18,14 @@ namespace DefaultNamespace.Sprite
             _sprites[name] = sprite;
         }
 
+        public bool Contains(string name)
+        {
+            return _sprites.ContainsKey(name);
+        }
+        
         public UnityEngine.Sprite GetSprite(string name)
         {
-            return _sprites[name];
+            return _sprites[name.Trim()];
         }
 
         public void PrintValues()

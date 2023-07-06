@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using DefaultNamespace.Audio;
 using DefaultNamespace.Text;
 using Helper;
 using TMPro;
@@ -35,8 +36,6 @@ namespace Entities
 
             if (!client.AllOrdersAreReady())
             {
-                Debug.Log("ALL ORDERS IS NOT READY");
-                //Warn it all orders are not ready!
                 return;
             }
             
@@ -50,6 +49,7 @@ namespace Entities
             _clientHandlerInventory.SetActive(false);
             player.CloseInventory();
             _clientPool.UnSpawn(client);
+            GenerateClients();
             
             client.UnViewOrder();
             
@@ -65,29 +65,28 @@ namespace Entities
             var client = _clientPool.GetClient(clientName);
             var order = client.GetOrders()[position];
             var itemOrdered = order.ItemOrdered;
+
+            var audioHandler = AudioHandlerScript.GetAudioHandler();
             
             var inventory = player.Inventory;
 
             if (!inventory.HasItem(itemOrdered))
             {
-                Debug.Log("Has no items");
-                //Warn it, no has items
+                audioHandler.PlaySound(SoundType.Error);
                 return;
             }
 
             if (order.IsReady)
             {
-                Debug.Log("The order is finished");
+                audioHandler.PlaySound(SoundType.Error);
                 return;
             }
-
-            Debug.Log("Yes it contains the items");
-            order.Ready();
             
-            Debug.Log("Deleting items");
+            order.Ready();
             inventory.DeleteItem(itemOrdered);
             var part = _clientInventoryText.GetPart(position);
             
+            audioHandler.PlaySound(SoundType.Correct);
             part.Made();
 
             FinishOrder(player, clientName);

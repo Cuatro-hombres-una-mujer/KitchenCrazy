@@ -18931,7 +18931,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &995712457
 Transform:
   m_ObjectHideFlags: 0
@@ -42996,7 +42996,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1066470010}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 937377050}
+        m_TargetAssemblyTypeName: Gui.Script.FryerSystemScript, Assembly-CSharp
+        m_MethodName: NextPageInventoryButtonOnClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1066470010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -49546,16 +49558,17 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 174374845}
+        m_TargetAssemblyTypeName: DefaultNamespace.Button.InventoryButtonPantry,
+          Assembly-CSharp
+        m_MethodName: OnClickAndGive
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Carne
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1154765088
@@ -49824,7 +49837,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1170919233
 RectTransform:
   m_ObjectHideFlags: 0
@@ -51862,7 +51875,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ovenInventoryGameObject: {fileID: 411814398}
   itemsCanCooked:
-  - Carne Churrasco
+  - Churrasco
   - Vienesa
   - Pollo
   - Hamburguesa
@@ -68627,7 +68640,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1736507292}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 937377050}
+        m_TargetAssemblyTypeName: Gui.Script.FryerSystemScript, Assembly-CSharp
+        m_MethodName: PreviousPageInventoryButtonOnClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1736507292
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -74442,6 +74467,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 1b7862aeba9dbae47a191864259ee2de, type: 3}
   - {fileID: 21300000, guid: 49bcfee29a56fbf40bb2b64608d958ac, type: 3}
   - {fileID: 21300000, guid: b5027c970798b31479e9b0e01081a790, type: 3}
+  - {fileID: 21300000, guid: 530217aa1cf208746b242542affb66d5, type: 3}
+  - {fileID: 21300000, guid: b1c492b1afca72642bf081035130ac01, type: 3}
   namesFood:
   - Palta
   - Papa
@@ -74457,7 +74484,9 @@ MonoBehaviour:
   - Hamburguesa Cocinada
   - Cebolla
   - Lechuga
-  - Churrasco Cocinado
+  - Churrasco Cocinada
+  - Churrasco
+  - Pollo Cocinado
   spriteRendersClient:
   - {fileID: 21300000, guid: d526226d6f830ab43931454c06b083b1, type: 3}
   - {fileID: 21300000, guid: c3cabf7ee1d3ff249b0d0916544a028a, type: 3}
@@ -75746,7 +75775,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Carne Churrasco
+          m_StringArgument: Churrasco
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1899292030

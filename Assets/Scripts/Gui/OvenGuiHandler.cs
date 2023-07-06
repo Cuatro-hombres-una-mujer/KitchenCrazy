@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using DefaultNamespace.Audio;
 using DefaultNamespace.Sprite;
 using Entities.Player;
 using Food;
@@ -18,6 +19,7 @@ namespace DefaultNamespace.Gui
         
         private readonly GameObject _nextPageButton;
         private readonly GameObject _previousPageButton;
+        private readonly IAudioHandler _audioHandler;
 
         public OvenGuiHandler(Inventory inventory, List<string> itemsCanCooked,
             GameObject nextPageButton, GameObject previousPageButton)
@@ -27,6 +29,8 @@ namespace DefaultNamespace.Gui
             _inventoryGuiHandler = new InventoryGuiHandler(inventory, Slots,
                 nextPageButton, previousPageButton);
             _itemsCanCooked = itemsCanCooked;
+
+            _audioHandler = AudioHandlerScript.GetAudioHandler();
         }
 
         public void AddSlotOven(SlotOven slotOven)
@@ -122,6 +126,7 @@ namespace DefaultNamespace.Gui
         private ItemFood _itemCooked;
         private TextMeshProUGUI _buttonText;
         private Image _image;
+        private IAudioHandler _audioHandler;
 
         public SlotOven(TextMeshProUGUI buttonText, GameObject spriteImage)
         {
@@ -130,7 +135,7 @@ namespace DefaultNamespace.Gui
             _buttonText = buttonText;
             
             _image = spriteImage.GetComponent<Image>();
-            
+            _audioHandler = AudioHandlerScript.GetAudioHandler();
             
             _buttonText.text = "Esperando alimento!";
         }
@@ -147,14 +152,19 @@ namespace DefaultNamespace.Gui
             _itemCooked = _preparation.Item;
             _seconds = preparation.Seconds;
 
+            
+            
             var storageScript = SpriteStorageScript.GetSpriteStorage(SpriteType.Food);
-
+            _audioHandler.PlaySound(SoundType.Freir);
+            
             storageScript.PrintValues();
+            
+            Debug.Log(_itemCooked.Name);
+            Debug.Log("Contains: " + storageScript.Contains(_itemCooked.Name));
             
             Debug.Log("Item Food Name >>> : " + _itemCooked.Name);
             _image.sprite = storageScript.GetSprite(_itemCooked.Name);
-            
-            
+
             _buttonText.text = "Cocinando...";
         }
 

@@ -23,11 +23,11 @@
   },
   {
     "Item": {
-      "name": "Carne Churrasco",
+      "name": "Churrasco",
       "quantity": 1
     },
     "ItemCooked": {
-      "name": "Carne Churrasco Cocinada",
+      "name": "Churrasco Cocinada",
       "quantity": 1
     },
     "seconds": 10
